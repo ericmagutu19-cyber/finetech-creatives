@@ -1,0 +1,190 @@
+/* ==========================================================
+   HEROBADGE.CSS
+   Fine Tech Creatives
+========================================================== */
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding: 10px 18px;
+
+    border-radius:999px;
+
+    background:rgba(200,255,0,.05);
+
+    border:1px solid rgba(200,255,0,.22);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    width:fit-content;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:all .35s ease;
+
+    cursor:default;
+}
+
+/* ----------------------------
+   Glow Line
+----------------------------- */
+
+.hero-badge::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    padding:1px;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    rgba(200,255,0,.55),
+    rgba(255,255,255,.08),
+    rgba(200,255,0,.45)
+    );
+
+    mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+    -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    pointer-events:none;
+
+}
+
+/* ----------------------------
+   Hover
+----------------------------- */
+
+.hero-badge:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#C8FF00;
+
+    box-shadow:
+    
+    0 10px 30px rgba(200,255,0,.15);
+
+}
+
+/* ----------------------------
+   Text
+----------------------------- */
+
+.hero-badge span{
+
+    color:#C8FF00;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:2.5px;
+
+    text-transform:uppercase;
+
+    white-space:nowrap;
+
+}
+
+/* ----------------------------
+   Dot
+----------------------------- */
+
+.hero-badge-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#C8FF00;
+
+    box-shadow:
+
+    0 0 12px rgba(200,255,0,.9);
+
+    animation:pulseBadge 2s infinite;
+
+}
+
+/* ----------------------------
+   Animation
+----------------------------- */
+
+@keyframes pulseBadge{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+        opacity:.7;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ----------------------------
+   Mobile
+----------------------------- */
+
+@media(max-width:768px){
+
+.hero-badge{
+
+padding:10px 18px;
+
+}
+
+.hero-badge span{
+
+font-size:.75rem;
+
+letter-spacing:2px;
+
+}
+
+}

@@ -1,0 +1,252 @@
+/* ==========================================================
+   HERO.CSS
+   Fine Tech Creatives
+   Controls ONLY the Hero Layout
+========================================================== */
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero-section{
+
+position:relative;
+
+min-height:calc(100vh - 80px);
+
+display:flex;
+
+align-items:center;
+
+overflow:visible;
+
+background:
+radial-gradient(circle at top right,
+rgba(200,255,0,.12),
+transparent 35%),
+
+radial-gradient(circle at bottom left,
+rgba(0,255,170,.05),
+transparent 45%),
+
+#050505;
+
+}
+
+/* ===========================
+   GRID OVERLAY
+=========================== */
+
+.hero-overlay{
+
+position:absolute;
+
+inset:0;
+
+background-image:
+
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+background-size:70px 70px;
+
+opacity:.22;
+
+animation:gridMove 22s linear infinite;
+
+}
+
+/* ===========================
+   MAIN GRID
+=========================== */
+
+.hero-grid{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:0.9fr 1.1fr;
+
+    align-items:center;
+
+    gap:40px;
+
+    padding:70px 0;
+
+}
+
+/* ===========================
+   LEFT SIDE
+=========================== */
+
+.hero-left{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+max-width:670px;
+
+gap:22px;
+
+position:relative;
+
+z-index:5;
+
+}
+
+/* ===========================
+   RIGHT SIDE
+=========================== */
+
+.hero-right{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+width:100%;
+
+min-width:0;
+
+overflow:visible;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:1200px){
+
+.hero-grid{
+
+grid-template-columns:1fr;
+
+gap:70px;
+
+text-align:center;
+
+}
+
+.hero-left{
+
+margin:auto;
+
+align-items:center;
+
+}
+
+.hero-right{
+
+justify-content:center;
+
+}
+
+}
+
+@media (max-width:992px){
+
+.hero-section{
+
+min-height:auto;
+
+padding:120px 0 80px;
+
+}
+
+.hero-grid{
+
+padding:0;
+
+gap:60px;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.hero-grid{
+
+gap:50px;
+
+}
+
+}
+
+@media (max-width:576px){
+
+.hero-section{
+
+padding:110px 0 60px;
+
+}
+
+.hero-grid{
+
+gap:40px;
+
+}
+
+}
+.hero-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+rgba(0,0,0,.35),
+
+transparent 45%,
+
+rgba(200,255,0,.05)
+
+);
+
+pointer-events:none;
+
+z-index:1;
+
+}
+@keyframes gridMove{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}

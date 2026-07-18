@@ -1,0 +1,86 @@
+/* ==========================================
+   HERO DESCRIPTION
+   Fine Tech Creatives
+========================================== */
+
+.hero-description{
+
+    max-width:650px;
+
+    font-size:1.28rem;
+
+    line-height:1.95;
+
+    color:#B6B6B6;
+
+    font-weight:400;
+
+    margin-top:5px;
+
+    margin-bottom:15px;
+
+}
+
+.hero-description strong{
+
+    color:white;
+
+    font-weight:700;
+
+}
+
+.hero-description .highlight{
+
+    color:#C8FF00;
+
+    font-weight:700;
+
+    position:relative;
+
+}
+
+.hero-description .highlight::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-3px;
+
+    width:100%;
+
+    height:2px;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        #C8FF00,
+
+        transparent
+
+    );
+
+    opacity:.6;
+
+}
+
+@media(max-width:992px){
+
+.hero-description{
+
+    text-align:center;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+}
+
+}

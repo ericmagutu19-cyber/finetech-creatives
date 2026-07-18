@@ -1,0 +1,119 @@
+/* =========================
+   PROPOSAL LAYOUT
+========================= */
+
+.proposal-layout{
+
+    display:grid;
+    grid-template-columns:420px 1fr;
+    gap:40px;
+
+    max-width:1600px;
+    margin:auto;
+    padding:40px;
+
+    align-items:flex-start;
+
+}
+
+.proposal-preview{
+
+    overflow:visible;
+
+    height:auto;
+
+    background:#ececec;
+
+    padding:40px;
+
+}
+
+.preview-paper{
+
+    background:none;
+    padding:0;
+    box-shadow:none;
+
+}
+
+.proposal-page{
+
+    width:210mm;
+
+    min-height:297mm;
+
+    background:white;
+
+    margin:0 auto 25px;
+
+    padding:22mm;
+
+    box-sizing:border-box;
+
+    overflow:hidden;
+
+    position:relative;
+
+    page-break-after:always;
+
+    page-break-inside:avoid;
+
+}
+.proposal-page *{
+
+    box-sizing:border-box;
+
+}
+.proposal-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+}
+
+.proposal-table td{
+
+    word-wrap:break-word;
+
+}
+.proposal-page img{
+
+    max-width:100%;
+
+    height:auto;
+
+}
+.proposal-highlight-box,
+.investment-card,
+.signature-table,
+.timeline-card,
+.deliverables-list{
+
+    break-inside:avoid;
+
+    page-break-inside:avoid;
+
+}
+h1,
+h2,
+h3,
+h4{
+
+    break-after:avoid;
+
+}
+li{
+
+    break-inside:avoid;
+
+}
+.proposal-page{
+
+    box-shadow:
+
+    0 4px 12px rgba(0,0,0,.08);
+
+}

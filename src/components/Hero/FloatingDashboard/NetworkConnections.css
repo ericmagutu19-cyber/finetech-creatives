@@ -1,0 +1,29 @@
+.network-svg{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    overflow:visible;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+.network-svg path{
+
+    fill:none;
+
+    stroke:rgba(200,255,0,.12);
+
+    stroke-width:2;
+
+    stroke-linecap:round;
+
+}

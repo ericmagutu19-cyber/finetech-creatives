@@ -1,0 +1,177 @@
+/* ==========================================
+   HERO BUTTONS
+========================================== */
+
+.hero-buttons{
+
+    display:flex;
+    align-items:center;
+    gap:22px;
+
+    flex-wrap:wrap;
+
+    margin-top:18px;
+
+}
+
+/*==============================*/
+
+.btn-primary{
+
+    position:relative;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    padding:18px 38px;
+
+    border-radius:18px;
+
+    background:#C8FF00;
+
+    color:#111;
+
+    font-weight:700;
+
+    font-size:1rem;
+
+    text-decoration:none;
+
+    overflow:hidden;
+
+    transition:.4s ease;
+
+    box-shadow:
+
+    0 15px 45px rgba(200,255,0,.25);
+
+}
+
+.btn-primary::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:70%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.55),
+
+transparent);
+
+transform:skewX(-25deg);
+
+transition:.75s;
+
+}
+
+.btn-primary:hover::before{
+
+left:140%;
+
+}
+
+.btn-primary:hover{
+
+transform:
+
+translateY(-6px);
+
+box-shadow:
+
+0 20px 60px rgba(200,255,0,.38);
+
+}
+
+/*==============================*/
+
+.btn-secondary{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:12px;
+
+padding:17px 34px;
+
+border-radius:18px;
+
+background:
+
+rgba(255,255,255,.04);
+
+border:
+
+1px solid rgba(255,255,255,.08);
+
+color:white;
+
+text-decoration:none;
+
+font-weight:500;
+
+backdrop-filter:blur(20px);
+
+transition:.4s;
+
+}
+
+.btn-secondary:hover{
+
+transform:
+
+translateY(-6px);
+
+background:
+
+rgba(255,255,255,.08);
+
+border-color:
+
+rgba(200,255,0,.25);
+
+box-shadow:
+
+0 0 25px rgba(200,255,0,.12);
+
+}
+
+/*==============================*/
+
+@media(max-width:768px){
+
+.hero-buttons{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+.btn-primary,
+
+.btn-secondary{
+
+width:100%;
+
+}
+
+}

@@ -1,0 +1,101 @@
+/* ==========================
+   FINE TECH DESIGN SYSTEM
+========================== */
+
+/* COLORS */
+:root{
+  --clr-bg: #050505;
+  --clr-surface: #111111;
+  --clr-surface-2: #1A1A1A;
+
+  --clr-primary: #FFFFFF;
+  --clr-secondary: #BDBDBD;
+
+  --clr-accent: #C8FF00;
+
+  --clr-border: rgba(255,255,255,.08);
+
+  --clr-shadow: rgba(0,0,0,.45);
+
+  --clr-success: #22C55E;
+}
+
+/* TYPOGRAPHY */
+
+:root{
+
+  --fs-display: clamp(3rem,7vw,5rem);
+
+  --fs-h1: clamp(2.5rem,5vw,4rem);
+
+  --fs-h2: clamp(2rem,4vw,3rem);
+
+  --fs-h3:1.5rem;
+
+  --fs-body:1.125rem;
+
+  --fs-small:.95rem;
+
+}
+
+/* FONT WEIGHT */
+
+:root{
+
+  --fw-light:300;
+
+  --fw-normal:400;
+
+  --fw-medium:500;
+
+  --fw-semibold:600;
+
+  --fw-bold:700;
+
+  --fw-black:800;
+
+}
+
+/* SPACING */
+
+:root{
+
+  --space-1:8px;
+
+  --space-2:16px;
+
+  --space-3:24px;
+
+  --space-4:32px;
+
+  --space-5:48px;
+
+  --space-6:64px;
+
+  --space-7:96px;
+
+}
+
+/* RADIUS */
+
+:root{
+
+  --radius-sm:12px;
+
+  --radius-md:18px;
+
+  --radius-lg:28px;
+
+  --radius-pill:999px;
+
+}
+
+/* SHADOWS */
+
+:root{
+
+  --shadow-lg:
+
+  0 25px 70px rgba(0,0,0,.45);
+
+}

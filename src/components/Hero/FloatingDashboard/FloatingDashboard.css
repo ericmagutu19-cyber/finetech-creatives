@@ -1,0 +1,257 @@
+/* ==========================================================
+   FLOATING DASHBOARD
+   Fine Tech Creatives
+==========================================================*/
+
+.dashboard-stage{
+
+    position:relative;
+
+    width:100%;
+    max-width:980px;
+    height:820px;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:visible;
+}
+
+/* =======================================================
+   Background
+======================================================= */
+
+.dashboard-background{
+
+    position:absolute;
+    inset:0;
+
+    border-radius:50px;
+
+    background:
+    radial-gradient(circle,
+    rgba(200,255,0,.10),
+    transparent 72%);
+
+    filter:blur(8px);
+
+    z-index:0;
+
+}
+
+/* =======================================================
+   Orbit
+======================================================= */
+
+.dashboard-orbit{
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+/* =======================================================
+   Main Layout
+======================================================= */
+
+.dashboard-layout{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+}
+
+/* =======================================================
+   CENTER CARD
+======================================================= */
+
+.dashboard-center{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-52%);
+
+    z-index:20;
+
+}
+
+/* =======================================================
+   DASHBOARD MODULES
+======================================================= */
+
+.dashboard-card{
+
+    position:absolute;
+
+    z-index:12;
+
+    transition:.35s;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+/* =======================================================
+   TOP LEFT
+======================================================= */
+
+.module-top-left{
+
+    top:70px;
+    left:-35px;
+
+}
+
+/* =======================================================
+   TOP RIGHT
+======================================================= */
+
+.module-top-right{
+
+    top:70px;
+    right:-35px;
+
+}
+
+/* =======================================================
+   BOTTOM LEFT
+======================================================= */
+
+.module-bottom-left{
+
+    bottom:70px;
+    left:-35px;
+
+}
+
+/* =======================================================
+   BOTTOM RIGHT
+======================================================= */
+
+.module-bottom-right{
+
+    bottom:70px;
+    right:-35px;
+
+}
+
+/* =======================================================
+   CONNECTION LAYER
+======================================================= */
+
+.dashboard-connections{
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:8;
+
+}
+
+/* =======================================================
+   LARGE TABLETS
+======================================================= */
+
+@media (max-width:1200px){
+
+.dashboard-stage{
+
+    max-width:680px;
+    height:650px;
+
+}
+
+.module-top-left{
+
+    top:28px;
+    left:8px;
+
+}
+
+.module-top-right{
+
+    top:28px;
+    right:8px;
+
+}
+
+.module-bottom-left{
+
+    bottom:28px;
+    left:8px;
+
+}
+
+.module-bottom-right{
+
+    bottom:28px;
+    right:8px;
+
+}
+
+}
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width:768px){
+
+.dashboard-stage{
+
+    max-width:500px;
+    height:520px;
+
+}
+
+.module-top-left{
+
+    top:10px;
+    left:-10px;
+
+}
+
+.module-top-right{
+
+    top:10px;
+    right:-10px;
+
+}
+
+.module-bottom-left{
+
+    bottom:10px;
+    left:-10px;
+
+}
+
+.module-bottom-right{
+
+    bottom:10px;
+    right:-10px;
+
+}
+
+}

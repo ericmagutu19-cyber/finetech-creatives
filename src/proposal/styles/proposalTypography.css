@@ -1,0 +1,63 @@
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.proposal-page{
+
+    color:#333;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:15px;
+    line-height:1.8;
+
+}
+
+.proposal-page h1,
+.proposal-page h2,
+.proposal-page h3,
+.proposal-page h4{
+
+    color:#6FAF00;
+    margin-bottom:15px;
+
+}
+
+.proposal-page h2{
+
+    font-size:34px;
+
+}
+
+.proposal-page h3{
+
+    font-size:24px;
+    margin-top:30px;
+
+}
+
+.proposal-page p{
+
+    color:#333;
+    margin-bottom:16px;
+
+}
+
+.proposal-page li{
+
+    color:#333;
+    margin-bottom:10px;
+
+}
+
+.proposal-page strong{
+
+    color:#111;
+
+}
+
+.proposal-page hr{
+
+    margin:30px 0;
+    border:none;
+    border-top:1px solid #ddd;
+
+}

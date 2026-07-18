@@ -1,0 +1,298 @@
+/* ===================================================
+   PROPOSAL FORM
+=================================================== */
+
+.proposal-v2{
+
+    background:#111;
+    border:1px solid #222;
+    border-radius:20px;
+
+    max-width:900px;
+    margin:40px auto;
+
+    padding:40px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35);
+
+}
+
+/* ===================================================
+   Heading
+=================================================== */
+
+.proposal-v2 h1{
+
+    text-align:center;
+
+    color:#C8FF00;
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+    letter-spacing:.5px;
+
+}
+
+.proposal-v2 .subtitle{
+
+    text-align:center;
+
+    color:#9d9d9d;
+
+    margin-bottom:35px;
+
+    font-size:15px;
+
+}
+
+/* ===================================================
+   Labels
+=================================================== */
+
+.proposal-v2 label{
+
+    display:block;
+
+    color:#d9d9d9;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+/* ===================================================
+   Inputs
+=================================================== */
+
+.proposal-v2 input,
+.proposal-v2 select,
+.proposal-v2 textarea{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    border:1px solid #333;
+
+    background:#1a1a1a;
+
+    color:#fff;
+
+    font-size:15px;
+
+    margin-bottom:22px;
+
+    transition:all .25s ease;
+
+    box-sizing:border-box;
+
+}
+
+/* Placeholder */
+
+.proposal-v2 input::placeholder,
+.proposal-v2 textarea::placeholder{
+
+    color:#777;
+
+}
+
+/* Focus */
+
+.proposal-v2 input:focus,
+.proposal-v2 select:focus,
+.proposal-v2 textarea:focus{
+
+    border-color:#C8FF00;
+
+    box-shadow:
+        0 0 0 4px rgba(200,255,0,.12);
+
+    outline:none;
+
+}
+
+/* Disabled */
+
+.proposal-v2 input:disabled{
+
+    opacity:.75;
+
+    cursor:not-allowed;
+
+}
+
+/* ===================================================
+   Textarea
+=================================================== */
+
+.proposal-v2 textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+    line-height:1.6;
+
+}
+
+/* ===================================================
+   Package Summary Box
+=================================================== */
+
+.package-summary{
+
+    background:#181818;
+
+    border:1px solid #2b2b2b;
+
+    border-left:4px solid #C8FF00;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-bottom:25px;
+
+}
+
+.package-summary h4{
+
+    color:#C8FF00;
+
+    margin-bottom:12px;
+
+}
+
+.package-summary p{
+
+    color:#cfcfcf;
+
+    margin:6px 0;
+
+}
+
+/* ===================================================
+   Generate Button
+=================================================== */
+
+.generate-btn{
+
+    width:100%;
+
+    padding:17px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#C8FF00;
+
+    color:#111;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+}
+
+.generate-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 18px 35px rgba(200,255,0,.25);
+
+}
+
+.generate-btn:active{
+
+    transform:translateY(0);
+
+}
+
+/* ===================================================
+   Preview Tabs
+=================================================== */
+
+.preview-tabs{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:25px;
+
+}
+
+.preview-tabs button{
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    border:1px solid #333;
+
+    background:#181818;
+
+    color:#ccc;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.preview-tabs button:hover{
+
+    background:#C8FF00;
+
+    color:#111;
+
+}
+
+.preview-tabs button.active{
+
+    background:#C8FF00;
+
+    color:#111;
+
+    font-weight:600;
+
+}
+
+/* ===================================================
+   Responsive
+=================================================== */
+
+@media(max-width:900px){
+
+    .proposal-v2{
+
+        padding:25px;
+
+        margin:20px;
+
+    }
+
+    .proposal-v2 h1{
+
+        font-size:30px;
+
+    }
+
+}

@@ -1,0 +1,61 @@
+/* ==========================================
+   HERO HEADLINE
+========================================== */
+
+.hero-headline{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin:0;
+    padding:0;
+}
+
+.hero-headline h1{
+
+    margin:0;
+
+    font-size:clamp(4.2rem,7vw,6.6rem);
+
+    font-weight:900;
+
+    line-height:.86;
+
+    letter-spacing:-4px;
+
+    color:#fff;
+
+    text-transform:none;
+
+}
+
+.hero-headline span{
+
+    display:inline-block;
+
+    color:#C8FF00;
+
+}
+
+/* nice glow on green */
+
+.hero-headline span{
+
+    text-shadow:
+
+    0 0 18px rgba(200,255,0,.15);
+
+}
+
+@media(max-width:992px){
+
+.hero-headline h1{
+
+font-size:3.5rem;
+
+line-height:.92;
+
+letter-spacing:-2px;
+
+}
+
+}

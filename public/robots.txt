@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://finetechcreatives.co.ke/sitemap.xml
