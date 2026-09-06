@@ -1,5 +1,3 @@
-import jsPDF from "jspdf";
-
 import logo from "../assets/finetech-logo.png";
 
 import { companyData } from "../config/companyData";
@@ -18,30 +16,84 @@ import { saveProposal } from "./proposalStorage";
 import { ProposalStatus } from "./proposalStatus";
 import { exportProposal } from "./exportProposal";
 
+
 /* ===========================================
    Helpers
 =========================================== */
 
 function getBase64Image(img) {
 
-    const canvas = document.createElement("canvas");
+    const canvas =
+        document.createElement("canvas");
 
-    canvas.width = img.width;
-    canvas.height = img.height;
+    canvas.width =
+        img.naturalWidth || img.width;
 
-    const ctx = canvas.getContext("2d");
+    canvas.height =
+        img.naturalHeight || img.height;
 
-    ctx.drawImage(img, 0, 0);
+    const ctx =
+        canvas.getContext("2d");
 
-    return canvas.toDataURL("image/png");
+    if (!ctx) {
+
+        throw new Error(
+            "Unable to create image canvas."
+        );
+
+    }
+
+    ctx.drawImage(
+        img,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    return canvas.toDataURL(
+        "image/png"
+    );
 
 }
+
 
 function generateProposalId() {
 
-    return "PROP-" + Date.now();
+    return `PROP-${Date.now()}`;
 
 }
+
+
+/* ===========================================
+   Load Image
+=========================================== */
+
+function loadImage(src) {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            const image =
+                new Image();
+
+            image.onload = () =>
+                resolve(image);
+
+            image.onerror = () =>
+                reject(
+                    new Error(
+                        "Unable to load proposal logo."
+                    )
+                );
+
+            image.src = src;
+
+        }
+    );
+
+}
+
 
 /* ===========================================
    Main Generator
@@ -49,29 +101,42 @@ function generateProposalId() {
 
 export async function generateProposal(form) {
 
-    const doc = new jsPDF();
+    /* ----------------------------------------
+       Load jsPDF only when proposal generation
+       is requested
+    ---------------------------------------- */
+
+    const { default: jsPDF } =
+        await import("jspdf");
+
+
+    const doc =
+        new jsPDF();
+
 
     const proposalNumber =
-        "FTC-" +
-        new Date().getFullYear() +
-        "-" +
-        Math.floor(1000 + Math.random() * 9000);
+        `FTC-${new Date().getFullYear()}-${Math.floor(
+            1000 +
+            Math.random() * 9000
+        )}`;
 
-    const today = new Date().toLocaleDateString();
 
-    // Load Logo
+    const today =
+        new Date().toLocaleDateString();
 
-    const logoImage = new Image();
 
-    logoImage.src = logo;
+    /* =====================================
+       Load Logo
+    ===================================== */
 
-    await new Promise((resolve) => {
+    const logoImage =
+        await loadImage(logo);
 
-        logoImage.onload = resolve;
+    const logoBase64 =
+        getBase64Image(
+            logoImage
+        );
 
-    });
-
-    const logoBase64 = getBase64Image(logoImage);
 
     /* =====================================
        PDF Pages
@@ -120,58 +185,78 @@ export async function generateProposal(form) {
         doc
     );
 
+
     /* =====================================
        Save Proposal History
     ===================================== */
 
-    console.log("Saving Proposal...", {
+    console.log(
+        "Saving Proposal...",
+        {
+            proposalNumber,
 
-        proposalNumber,
+            client:
+                form.client,
 
-        client: form.client,
+            business:
+                form.business,
 
-        business: form.business,
+            service:
+                form.service,
 
-        service: form.service,
+            package:
+                form.package,
 
-        package: form.package,
+            amount:
+                form.price,
+        }
+    );
 
-        amount: form.price
-
-    });
 
     saveProposal({
 
-        id: generateProposalId(),
+        id:
+            generateProposalId(),
 
         proposalNumber,
 
-        client: form.client,
+        client:
+            form.client,
 
-        business: form.business,
+        business:
+            form.business,
 
-        service: form.service,
+        service:
+            form.service,
 
-        package: form.package,
+        package:
+            form.package,
 
-        amount: form.price,
+        amount:
+            form.price,
 
-        timeline: form.timeline,
+        timeline:
+            form.timeline,
 
-        createdDate: today,
+        createdDate:
+            today,
 
-        status: ProposalStatus.GENERATED,
+        status:
+            ProposalStatus.GENERATED,
 
-        formData: form
+        formData:
+            form,
 
     });
+
 
     /* =====================================
        Download PDF
     ===================================== */
 
     await exportProposal(
-    form.business || "Proposal"
-);
+        form.business ||
+        "Proposal"
+    );
 
 }

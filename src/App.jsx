@@ -1,35 +1,110 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import ProposalGenerator from "./pages/ProposalGenerator";
-import ProposalGeneratorV2 from "./pages/ProposalGeneratorV2";
-import AdminDashboard from "./pages/AdminDashboard";
-import ProjectsDashboard
-from "./pages/ProjectsDashboard";
+
+/* ==========================================================
+   LAZY-LOADED INTERNAL / HEAVY PAGES
+
+   These pages are downloaded only when their route is opened.
+   This keeps Proposal Generator, Admin Dashboard,
+   Projects Dashboard and their heavy dependencies out of
+   the initial homepage bundle.
+========================================================== */
+
+const ProposalGenerator = lazy(() =>
+  import("./pages/ProposalGenerator")
+);
+
+const ProposalGeneratorV2 = lazy(() =>
+  import("./pages/ProposalGeneratorV2")
+);
+
+const AdminDashboard = lazy(() =>
+  import("./pages/AdminDashboard")
+);
+
+const ProjectsDashboard = lazy(() =>
+  import("./pages/ProjectsDashboard")
+);
+
+
+/* ==========================================================
+   PAGE LOADER
+========================================================== */
+
+function PageLoader() {
+  return (
+    <div
+      className="admin-page-loading"
+      role="status"
+      aria-live="polite"
+    >
+      Loading...
+    </div>
+  );
+}
+
+
+/* ==========================================================
+   APP
+========================================================== */
 
 export default function App() {
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={<HomePage />}
-      />
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
 
-      <Route
-        path="/proposal-generator-v2"
-        element={<ProposalGeneratorV2 />}
-      />
- 
+        {/* ==================================================
+           PUBLIC HOMEPAGE
+        ================================================== */}
 
-      <Route
-        path="/admin"
-        element={<AdminDashboard />}
-      />
-      <Route
-  path="/projects"
-  element={<ProjectsDashboard />}
-/>
-    </Routes>
-    
+        <Route
+          path="/"
+          element={<HomePage />}
+        />
+
+
+        {/* ==================================================
+           PROPOSAL GENERATOR
+        ================================================== */}
+
+        <Route
+          path="/proposal"
+          element={<ProposalGenerator />}
+        />
+
+
+        {/* ==================================================
+           PROPOSAL GENERATOR V2
+        ================================================== */}
+
+        <Route
+          path="/proposal-generator-v2"
+          element={<ProposalGeneratorV2 />}
+        />
+
+
+        {/* ==================================================
+           ADMIN DASHBOARD
+        ================================================== */}
+
+        <Route
+          path="/admin"
+          element={<AdminDashboard />}
+        />
+
+
+        {/* ==================================================
+           PROJECTS DASHBOARD
+        ================================================== */}
+
+        <Route
+          path="/projects"
+          element={<ProjectsDashboard />}
+        />
+
+      </Routes>
+    </Suspense>
   );
 }

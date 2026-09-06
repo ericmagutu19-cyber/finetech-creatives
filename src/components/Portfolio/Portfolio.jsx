@@ -1,333 +1,481 @@
 import { useState } from "react";
+
+import { motion } from "framer-motion";
+
+import {
+  FaArrowRight,
+  FaExpand,
+  FaLayerGroup,
+} from "react-icons/fa";
+
 import Lightbox from "../shared/Lightbox";
-import CaseStudyModal from "../CaseStudyModal";
+import CaseStudyModal from "../shared/CaseStudyModal";
 
-import natiHome from "../../assets/portfolio/nati-home.png";
-import natiProducts from "../../assets/portfolio/nati-products.png";
-import natiCart from "../../assets/portfolio/nati-cart.png";
+import {
+  portfolioProjects,
+} from "../../data/portfolioProjects";
 
-import starlightHero from "../../assets/portfolio/starlight-hero.JPG";
-import starlightAbout from "../../assets/portfolio/starlight-about.JPG";
-import starlightValues from "../../assets/portfolio/starlight-values.JPG";
-import starlightJourney from "../../assets/portfolio/starlight-journey.JPG";
+import "./Portfolio.css";
 
-import proposalCover from "../../assets/portfolio/Proposal-cover.png";
-import marketingFlyer from "../../assets/portfolio/marketing-flyer.png";
+
+/* ==========================================================
+   MOTION VARIANTS
+========================================================== */
+
+const gridVariants = {
+  hidden: {
+    opacity: 0,
+  },
+
+  visible: {
+    opacity: 1,
+
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+
+  visible: {
+    opacity: 1,
+    y: 0,
+
+    transition: {
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+
+/* ==========================================================
+   PORTFOLIO
+========================================================== */
 
 export default function Portfolio() {
 
-  const natiGallery = [
-    natiHome,
-    natiProducts,
-    natiCart,
-  ];
+  const [selectedImage, setSelectedImage] =
+    useState(null);
 
-  const starlightGallery = [
-    starlightHero,
-    starlightAbout,
-    starlightValues,
-    starlightJourney,
-  ];
+  const [galleryImages, setGalleryImages] =
+    useState([]);
 
-  const projects = [
+  const [currentIndex, setCurrentIndex] =
+    useState(0);
 
-    {
-      image: starlightHero,
-      gallery: starlightGallery,
-      featured: true,
+  const [selectedProject, setSelectedProject] =
+    useState(null);
 
-      title: "Starlight Ndovoini Academy",
 
-      category: "Educational Website",
+  /* ======================================================
+     OPEN PROJECT GALLERY
+  ====================================================== */
 
-      industry: "Education",
+  const openGallery = (
+    project,
+    imageIndex = 0
+  ) => {
 
-      challenge:
-        "The academy required a modern digital presence that would inspire confidence in parents while showcasing its CBC learning journey and school values.",
+    const images =
+      project.gallery?.length
+        ? project.gallery
+        : [project.image];
 
-      solution:
-        "Designed and developed a responsive school website featuring admissions information, learning journey, about section, core values and engaging visual branding.",
+    setGalleryImages(images);
 
-      outcome:
-        "The institution now has a professional online presence capable of attracting prospective parents and strengthening its brand identity.",
+    setCurrentIndex(imageIndex);
 
-      description:
-        "A modern school website designed to improve visibility, communicate the school's mission and simplify access to information for parents.",
-    },
+    setSelectedImage(
+      images[imageIndex]
+    );
 
-    {
-      image: natiProducts,
-      gallery: natiGallery,
+  };
 
-      title: "Nati Stores",
 
-      category: "E-Commerce Website Development",
+  /* ======================================================
+     CLOSE PROJECT GALLERY
+  ====================================================== */
 
-      industry: "Sports E-Commerce",
+  const closeGallery = () => {
 
-      challenge:
-        "Needed a professional online platform to showcase and sell football products online.",
+    setSelectedImage(null);
 
-      solution:
-        "Developed a responsive React-based e-commerce website with shopping cart functionality, product catalog and WhatsApp ordering.",
+    setGalleryImages([]);
 
-      outcome:
-        "Created a scalable online storefront that improves product visibility and customer engagement.",
+    setCurrentIndex(0);
 
-      description:
-        "A football-focused e-commerce platform featuring product browsing, shopping cart functionality, WhatsApp ordering and responsive mobile design.",
-    },
+  };
 
-    {
-      image: proposalCover,
 
-      title: "SEO Growth Proposal",
+  /* ======================================================
+     NEXT IMAGE
+  ====================================================== */
 
-      category: "Business Visibility Planning",
+  const showNextImage = () => {
 
-      industry: "Business Consulting",
+    if (!galleryImages.length) {
+      return;
+    }
 
-      challenge:
-        "Businesses often struggle with online visibility and lead generation.",
+    const nextIndex =
+      (currentIndex + 1) %
+      galleryImages.length;
 
-      solution:
-        "Created a structured SEO and digital marketing roadmap tailored to business growth.",
+    setCurrentIndex(nextIndex);
 
-      outcome:
-        "Clear implementation plan for increasing visibility, engagement and conversions.",
+    setSelectedImage(
+      galleryImages[nextIndex]
+    );
 
-      description:
-        "A structured growth roadmap focused on increasing visibility, engagement and customer conversion.",
-    },
+  };
 
-    {
-      image: marketingFlyer,
 
-      title: "Marketing Campaign Assets",
+  /* ======================================================
+     PREVIOUS IMAGE
+  ====================================================== */
 
-      category: "Brand Promotion & Advertising",
+  const showPreviousImage = () => {
 
-      industry: "Marketing & Branding",
+    if (!galleryImages.length) {
+      return;
+    }
 
-      challenge:
-        "Businesses needed professional promotional materials that attract attention.",
+    const previousIndex =
+      (
+        currentIndex -
+        1 +
+        galleryImages.length
+      ) %
+      galleryImages.length;
 
-      solution:
-        "Designed visually engaging marketing assets optimized for digital and print use.",
+    setCurrentIndex(previousIndex);
 
-      outcome:
-        "Improved brand awareness and lead generation opportunities.",
+    setSelectedImage(
+      galleryImages[previousIndex]
+    );
 
-      description:
-        "Professional promotional materials designed to increase awareness and generate leads.",
-    },
+  };
 
-  ];
-
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
     <>
+      <section
+        id="portfolio"
+        className="portfolio-section"
+      >
+        {/* Background effects */}
 
-      <section id="portfolio" className="section">
+        <div className="portfolio-background-grid" />
 
-        <div className="container">
+        <div className="portfolio-glow portfolio-glow-left" />
 
-          <div className="featured-project">
+        <div className="portfolio-glow portfolio-glow-right" />
 
-            <div className="featured-content">
 
-              <span className="featured-badge">
+        <div className="portfolio-container">
 
-                FEATURED CASE STUDY
+          {/* ==================================================
+              SECTION HEADER
+          ================================================== */}
 
+          <motion.div
+            className="portfolio-header"
+            initial={{
+              opacity: 0,
+              y: 28,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.7,
+              ease: "easeOut",
+            }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+          >
+            <span className="portfolio-eyebrow">
+              OUR PROJECTS
+            </span>
+
+            <h2>
+              Digital Work Built
+              <span>
+                To Solve Real Business Needs.
               </span>
+            </h2>
 
-              <h2>Starlight Ndovoini Academy</h2>
+            <p>
+              Explore selected projects across websites, e-commerce,
+              branding, SEO planning and digital-marketing solutions.
+            </p>
+          </motion.div>
 
-              <p>
 
-                A modern educational website built to strengthen the school's
-                digital presence, improve parent engagement and showcase the
-                CBC learning journey.
+          {/* ==================================================
+              PROJECT GRID
+          ================================================== */}
 
-              </p>
+          <motion.div
+            className="portfolio-grid"
+            variants={gridVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 0.12,
+            }}
+          >
+            {portfolioProjects.map(
+              (project, index) => (
 
-              <ul>
+                <motion.article
+                  key={project.id}
+                  className={`
+                    portfolio-card
+                    ${
+                      project.featured
+                        ? "portfolio-card-featured"
+                        : ""
+                    }
+                  `}
+                  variants={cardVariants}
+                  whileHover={{
+                    y: -9,
+                  }}
+                >
+                  {/* ==========================================
+                      PROJECT IMAGE
+                  ========================================== */}
 
-                <li>✓ Responsive Design</li>
+                  <div className="portfolio-image">
 
-                <li>✓ CBC Learning Journey</li>
-
-                <li>✓ School Branding</li>
-
-                <li>✓ Admissions Ready</li>
-
-                <li>✓ SEO Optimized</li>
-
-              </ul>
-
-              <button
-                className="btn-primary"
-                onClick={() => setSelectedProject(projects[0])}
-              >
-                View Case Study
-              </button>
-
-            </div>
-
-            <div className="featured-image">
-
-              <img
-                src={starlightHero}
-                alt="Starlight Academy"
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-
-                  setGalleryImages(starlightGallery);
-
-                  setCurrentIndex(0);
-
-                  setSelectedImage(starlightGallery[0]);
-
-                }}
-              />
-
-            </div>
-
-          </div>
-
-          <h2 className="portfolio-heading">
-
-            Recent Projects
-
-          </h2>
-
-          <div className="portfolio-grid">
-
-            {projects.map((project, index) => (
-
-              <div
-                key={index}
-                className="portfolio-card"
-                style={{ cursor: "pointer" }}
-                onClick={() => setSelectedProject(project)}
-              >
-
-                <div className="portfolio-image">
-
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    style={{ cursor: "pointer" }}
-                    onClick={(e) => {
-
-                      e.stopPropagation();
-
-                      if (project.gallery) {
-
-                        setGalleryImages(project.gallery);
-
-                        setCurrentIndex(0);
-
-                        setSelectedImage(project.gallery[0]);
-
-                      } else {
-
-                        setGalleryImages([project.image]);
-
-                        setCurrentIndex(0);
-
-                        setSelectedImage(project.image);
-
+                    <button
+                      type="button"
+                      className="portfolio-image-button"
+                      onClick={() =>
+                        openGallery(project)
                       }
+                      aria-label={`Open ${project.title} gallery`}
+                    >
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        width="1200"
+                        height="750"
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                      />
 
-                    }}
-                  />
+                      <span className="portfolio-image-overlay">
 
-                </div>
+                        <span className="portfolio-view-icon">
+                          <FaExpand />
+                        </span>
 
-                <div className="portfolio-content">
+                        View Gallery
 
-                  {project.featured && (
+                      </span>
 
-                    <span className="featured-project-badge">
+                    </button>
 
-                      Featured
 
-                    </span>
+                    <div className="portfolio-image-top">
 
-                  )}
+                      <span className="portfolio-project-number">
+                        {String(index + 1).padStart(
+                          2,
+                          "0"
+                        )}
+                      </span>
 
-                  <h3>{project.title}</h3>
 
-                  <p className="green">
+                      {project.featured && (
 
-                    {project.category}
+                        <span className="portfolio-featured-badge">
+                          Featured
+                        </span>
 
-                  </p>
+                      )}
 
-                  <p className="portfolio-description">
+                    </div>
 
-                    {project.description}
 
-                  </p>
+                    <div className="portfolio-gallery-count">
 
-                </div>
+                      <FaLayerGroup />
 
-              </div>
+                      <span>
 
-            ))}
+                        {project.gallery?.length || 1}
 
-          </div>
+                        {" "}
+
+                        {project.gallery?.length === 1
+                          ? "Image"
+                          : "Images"}
+
+                      </span>
+
+                    </div>
+
+                  </div>
+
+
+                  {/* ==========================================
+                      PROJECT CONTENT
+                  ========================================== */}
+
+                  <div className="portfolio-content">
+
+                    <div className="portfolio-meta">
+
+                      <span className="portfolio-category">
+                        {project.category}
+                      </span>
+
+                      <span className="portfolio-industry">
+                        {project.industry}
+                      </span>
+
+                    </div>
+
+
+                    <h3>
+                      {project.title}
+                    </h3>
+
+
+                    <p className="portfolio-description">
+                      {project.description}
+                    </p>
+
+
+                    {/* Project actions */}
+
+                    <div className="portfolio-actions">
+
+                      <motion.button
+                        type="button"
+                        className="portfolio-case-button"
+                        onClick={() =>
+                          setSelectedProject(
+                            project
+                          )
+                        }
+                        whileHover={{
+                          x: 4,
+                        }}
+                        whileTap={{
+                          scale: 0.97,
+                        }}
+                      >
+                        <span>
+                          View Case Study
+                        </span>
+
+                        <FaArrowRight />
+                      </motion.button>
+
+
+                      <button
+                        type="button"
+                        className="portfolio-gallery-button"
+                        onClick={() =>
+                          openGallery(project)
+                        }
+                        aria-label={`View ${project.title} gallery`}
+                      >
+                        <FaExpand />
+                      </button>
+
+                    </div>
+
+                  </div>
+
+
+                  {/* Bottom light */}
+
+                  <div className="portfolio-card-light" />
+
+                </motion.article>
+
+              )
+            )}
+          </motion.div>
+
+
+          {/* ==================================================
+              SECTION FOOTER
+          ================================================== */}
+
+          <motion.div
+            className="portfolio-footer"
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.15,
+            }}
+            viewport={{
+              once: true,
+            }}
+          >
+            <span className="portfolio-footer-dot" />
+
+            <p>
+              Every project is developed around the client’s goals,
+              audience and practical business requirements.
+            </p>
+
+          </motion.div>
 
         </div>
-
       </section>
+
+
+      {/* ==================================================
+          IMAGE LIGHTBOX
+      ================================================== */}
 
       <Lightbox
         image={selectedImage}
         images={galleryImages}
         currentIndex={currentIndex}
-        onClose={() => {
-
-          setSelectedImage(null);
-
-          setGalleryImages([]);
-
-        }}
-        onNext={() => {
-
-          const next = (currentIndex + 1) % galleryImages.length;
-
-          setCurrentIndex(next);
-
-          setSelectedImage(galleryImages[next]);
-
-        }}
-        onPrev={() => {
-
-          const prev =
-            (currentIndex - 1 + galleryImages.length) %
-            galleryImages.length;
-
-          setCurrentIndex(prev);
-
-          setSelectedImage(galleryImages[prev]);
-
-        }}
+        onClose={closeGallery}
+        onNext={showNextImage}
+        onPrev={showPreviousImage}
       />
+
+
+      {/* ==================================================
+          CASE STUDY MODAL
+      ================================================== */}
 
       <CaseStudyModal
         project={selectedProject}
-        onClose={() => setSelectedProject(null)}
+        onClose={() =>
+          setSelectedProject(null)
+        }
       />
-
     </>
   );
 
 }
-

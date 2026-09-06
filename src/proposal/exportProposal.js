@@ -1,7 +1,16 @@
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
-
 export async function exportProposal(fileName = "Proposal") {
+
+    /* ----------------------------------------------
+       Load heavy libraries ONLY when exporting
+    ---------------------------------------------- */
+
+    const [
+        { default: html2canvas },
+        { default: jsPDF },
+    ] = await Promise.all([
+        import("html2canvas"),
+        import("jspdf"),
+    ]);
 
     const pages =
         document.querySelectorAll(".proposal-page");
@@ -18,18 +27,16 @@ export async function exportProposal(fileName = "Proposal") {
             {
                 scale: 2,
                 useCORS: true,
-                backgroundColor: "#ffffff"
+                backgroundColor: "#ffffff",
             }
         );
 
         const imgData =
             canvas.toDataURL("image/jpeg", 0.85);
 
-        const pageWidth =
-            210;
+        const pageWidth = 210;
 
-        const pageHeight =
-            297;
+        const pageHeight = 297;
 
         if (i !== 0) {
 
@@ -38,23 +45,14 @@ export async function exportProposal(fileName = "Proposal") {
         }
 
         pdf.addImage(
-
             imgData,
-
             "JPEG",
-
             0,
-
             0,
-
             pageWidth,
-
             pageHeight,
-
             undefined,
-
             "FAST"
-
         );
 
     }

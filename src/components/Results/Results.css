@@ -1,0 +1,684 @@
+/* ==========================================================
+   WHAT WE HELP BUSINESSES ACHIEVE
+   Fine Tech Creatives
+========================================================== */
+
+.outcomes-section {
+    position: relative;
+
+    padding: 125px 24px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #080a08 50%,
+            #050505 100%
+        );
+}
+
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+.outcomes-background-grid {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.022) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.022) 1px,
+            transparent 1px
+        );
+
+    background-size: 76px 76px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #000 17%,
+            #000 83%,
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.outcomes-glow {
+    position: absolute;
+
+    width: 470px;
+    height: 470px;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    pointer-events: none;
+}
+
+.outcomes-glow-left {
+    top: 22%;
+    left: -280px;
+
+    background:
+        rgba(200, 255, 0, 0.065);
+}
+
+.outcomes-glow-right {
+    right: -280px;
+    bottom: 12%;
+
+    background:
+        rgba(120, 105, 255, 0.05);
+}
+
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.outcomes-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1240px;
+
+    margin: 0 auto;
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.outcomes-header {
+    max-width: 820px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+.outcomes-eyebrow {
+    display: inline-flex;
+
+    margin-bottom: 21px;
+    padding: 8px 15px;
+
+    border:
+        1px solid
+        rgba(200, 255, 0, 0.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(200, 255, 0, 0.055);
+
+    color: #c8ff00;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+}
+
+.outcomes-header h2 {
+    margin: 0 0 22px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            2.55rem,
+            5vw,
+            4.7rem
+        );
+
+    font-weight: 800;
+
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+}
+
+.outcomes-header h2 span {
+    display: block;
+
+    color: #c8ff00;
+
+    text-shadow:
+        0 0 34px
+        rgba(200, 255, 0, 0.12);
+}
+
+.outcomes-header p {
+    max-width: 730px;
+
+    margin: 0 auto;
+
+    color: #a0a49d;
+
+    font-size: 1rem;
+    line-height: 1.82;
+}
+
+
+/* ==========================================================
+   OUTCOMES GRID
+========================================================== */
+
+.outcomes-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 23px;
+}
+
+
+/* ==========================================================
+   OUTCOME CARD
+========================================================== */
+
+.outcome-card {
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 31px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.075);
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(255, 255, 255, 0.06),
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 25px 58px
+        rgba(0, 0, 0, 0.35);
+
+    transition:
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.outcome-card:hover {
+    border-color:
+        color-mix(
+            in srgb,
+            var(--outcome-accent, #c8ff00) 34%,
+            transparent
+        );
+
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            color-mix(
+                in srgb,
+                var(--outcome-accent, #c8ff00) 9%,
+                transparent
+            ),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.022)
+        );
+
+    box-shadow:
+        0 38px 80px
+        rgba(0, 0, 0, 0.45),
+        0 0 38px
+        var(--outcome-glow, rgba(200, 255, 0, 0.07));
+}
+
+
+/* ==========================================================
+   TOP LIGHT
+========================================================== */
+
+.outcome-card-light {
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 1px;
+
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--outcome-accent, #c8ff00),
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        var(--outcome-glow, rgba(200, 255, 0, 0.5));
+
+    transition:
+        opacity 0.35s ease;
+}
+
+.outcome-card:hover
+.outcome-card-light {
+    opacity: 1;
+}
+
+
+/* ==========================================================
+   CARD HEAD
+========================================================== */
+
+.outcome-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+.outcome-icon {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--outcome-accent, #c8ff00) 30%,
+            transparent
+        );
+
+    border-radius: 18px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--outcome-accent, #c8ff00) 9%,
+            transparent
+        );
+
+    color:
+        var(--outcome-accent, #c8ff00);
+
+    font-size: 1.45rem;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.outcome-card:hover
+.outcome-icon {
+    transform:
+        translateY(-3px)
+        scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            var(--outcome-glow, rgba(200, 255, 0, 0.5))
+        );
+}
+
+.outcome-number {
+    color:
+        rgba(255, 255, 255, 0.18);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.outcome-card h3 {
+    margin: 0 0 15px;
+
+    color: #ffffff;
+
+    font-size: 1.45rem;
+    line-height: 1.25;
+}
+
+.outcome-description {
+    margin: 0 0 25px;
+
+    color: #979b94;
+
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+
+/* ==========================================================
+   OUTCOME LIST
+========================================================== */
+
+.outcome-list {
+    display: grid;
+
+    gap: 12px;
+
+    margin: 0 0 30px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.outcome-list li {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #d0d3cd;
+
+    font-size: 0.84rem;
+}
+
+.outcome-list li > span {
+    flex: 0 0 auto;
+
+    width: 21px;
+    height: 21px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--outcome-accent, #c8ff00) 10%,
+            transparent
+        );
+
+    color:
+        var(--outcome-accent, #c8ff00);
+
+    font-size: 0.55rem;
+}
+
+
+/* ==========================================================
+   PROGRESS BEAM
+========================================================== */
+
+.outcome-progress {
+    height: 3px;
+
+    margin-top: auto;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+}
+
+.outcome-progress span {
+    display: block;
+
+    width: 72%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--outcome-accent, #c8ff00),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        var(--outcome-glow, rgba(200, 255, 0, 0.45));
+
+    transform:
+        translateX(-110%);
+
+    transition:
+        transform 0.75s ease;
+}
+
+.outcome-card:hover
+.outcome-progress span {
+    transform:
+        translateX(0);
+}
+
+
+/* ==========================================================
+   PERSONALITIES
+========================================================== */
+
+.outcome-visibility {
+    --outcome-accent: #c8ff00;
+    --outcome-glow: rgba(200, 255, 0, 0.48);
+}
+
+.outcome-enquiries {
+    --outcome-accent: #7eeeff;
+    --outcome-glow: rgba(0, 210, 255, 0.48);
+}
+
+.outcome-credibility {
+    --outcome-accent: #c99bff;
+    --outcome-glow: rgba(160, 80, 255, 0.47);
+}
+
+.outcome-sales {
+    --outcome-accent: #7dffb2;
+    --outcome-glow: rgba(0, 255, 130, 0.46);
+}
+
+
+/* ==========================================================
+   CTA PANEL
+========================================================== */
+
+.outcomes-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 50px;
+    padding: 27px 30px;
+
+    border:
+        1px solid
+        rgba(200, 255, 0, 0.14);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(200, 255, 0, 0.06),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        0 24px 55px
+        rgba(0, 0, 0, 0.28);
+}
+
+.outcomes-cta-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #c8ff00;
+
+    font-size: 0.66rem;
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+.outcomes-cta h3 {
+    max-width: 660px;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            1.15rem,
+            2.3vw,
+            1.65rem
+        );
+
+    line-height: 1.4;
+}
+
+.outcomes-cta a {
+    flex: 0 0 auto;
+
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    padding: 0 20px;
+
+    border:
+        1px solid
+        rgba(200, 255, 0, 0.42);
+
+    border-radius: 14px;
+
+    background: #c8ff00;
+
+    color: #070907;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 0 28px
+        rgba(200, 255, 0, 0.12);
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 760px) {
+
+    .outcomes-section {
+        padding:
+            90px
+            18px;
+    }
+
+    .outcomes-header {
+        margin-bottom: 50px;
+    }
+
+    .outcomes-header h2 {
+        font-size:
+            clamp(
+                2.3rem,
+                12vw,
+                3.55rem
+            );
+    }
+
+    .outcomes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .outcome-card {
+        min-height: auto;
+
+        padding: 25px;
+
+        border-radius: 22px;
+    }
+
+    .outcomes-cta {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 24px;
+    }
+
+    .outcomes-cta a {
+        width: 100%;
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .outcome-card,
+    .outcome-icon,
+    .outcome-card-light,
+    .outcome-progress span,
+    .outcomes-cta a {
+        transition: none !important;
+    }
+
+}

@@ -85,7 +85,7 @@
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-52%);
+    transform:translate(-50%,-50%);
 
     z-index:20;
 
@@ -253,5 +253,56 @@
     right:-10px;
 
 }
+
+}
+/* ==========================================================
+   MOBILE PERFORMANCE MODE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    /* Hide decorative particles that do not communicate content */
+
+    .orbit-particle:nth-child(n + 5),
+    .dashboard-spark,
+    .dashboard-particle:nth-child(n + 4) {
+        display: none;
+    }
+
+
+    /* Reduce costly blurred effects */
+
+    .dashboard-glow,
+    .core-glow,
+    .hologram-glow {
+        filter: blur(45px);
+    }
+
+
+    /* Remove glass blur from secondary dashboard cards */
+
+    .dashboard-card {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+
+        background:
+            rgba(12, 15, 10, 0.92);
+    }
+
+
+    /* Slow continuous decorative animations */
+
+    .orbit-ring,
+    .core-reflection,
+    .scan-line {
+        animation-duration: 12s;
+    }
+
+
+    /* Hide background packets; retain the active packet */
+
+    .connection-packet:not(.active-energy-packet):not(.return-energy-packet) {
+        display: none;
+    }
 
 }

@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { jsPDF } from "jspdf";
+import { useEffect, useState } from "react";
 import logo from "../assets/finetech-logo.png";
-import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import AdminNavbar from "../components/AdminNavbar";
 import { serviceTemplates } from "../data/services";
@@ -110,7 +108,7 @@ useEffect(() => {
     }));
   }
 
-}, []);
+}, [form.service]);
 
   const handleChange = (e) => {
     setForm({
@@ -125,6 +123,11 @@ useEffect(() => {
   canvas.height = img.height;
 
   const ctx = canvas.getContext("2d");
+
+  if (!ctx) {
+    throw new Error("Unable to create the proposal image canvas.");
+  }
+
   ctx.drawImage(img, 0, 0);
 
   return canvas.toDataURL("image/png");
@@ -134,8 +137,10 @@ useEffect(() => {
     const logoImage = new Image();
 logoImage.src = logo;
 
-await new Promise((resolve) => {
+await new Promise((resolve, reject) => {
   logoImage.onload = resolve;
+  logoImage.onerror = () =>
+    reject(new Error("Unable to load the proposal logo."));
 });
 
 const logoBase64 =
@@ -151,7 +156,18 @@ const logoBase64 =
 
 const today =
   new Date().toLocaleDateString();
-    const doc = new jsPDF();
+
+const jsPDFModule = await import("jspdf");
+const jsPDF =
+  jsPDFModule.jsPDF ||
+  jsPDFModule.default;
+
+if (!jsPDF) {
+  throw new Error("Unable to load jsPDF.");
+}
+
+const doc = new jsPDF();
+
 // COVER PAGE
 
 doc.setFillColor(5, 5, 5);
@@ -394,9 +410,9 @@ y += 12;
 doc.setFontSize(11);
 doc.setTextColor(0,0,0);
 
-serviceTemplates[
-  form.service
-].includes.forEach(item=>{
+(
+  serviceTemplates[form.service]?.includes || []
+).forEach((item) => {
 
   doc.text(
     `• ${item}`,

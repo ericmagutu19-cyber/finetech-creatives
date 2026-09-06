@@ -1,43 +1,123 @@
+import { motion } from "framer-motion";
+
 import "./DashboardCard.css";
 
 export default function DashboardCard({
-    className,
+
     icon,
     title,
-    subtitle
+    subtitle,
+    status,
+    className,
+    active,
+    onMouseEnter,
+    onMouseLeave,
+
 }) {
 
     return (
 
-        <div className={`dashboard-card ${className}`}>
+        <motion.div
 
-            <div className="dashboard-icon">
+            className={`dashboard-card ${className} ${active ? "active" : ""}`}
 
-                {icon}
+            onMouseEnter={onMouseEnter}
 
-            </div>
+            onMouseLeave={onMouseLeave}
 
-            <h3>
+            animate={{
 
-                {title}
+                y: active ? -8 : 0,
 
-            </h3>
+                scale: active ? 1.04 : 1,
 
-            <p>
+            }}
 
-                {subtitle}
+            whileHover={{
 
-            </p>
+                scale: 1.06,
+
+                y: -10,
+
+            }}
+
+            transition={{
+
+                duration: .35,
+
+                ease: "easeOut",
+
+            }}
+
+        >
+
+            {/* Glow Layer */}
+
+            <div className="card-glow"></div>
+
+            {/* Top Accent */}
+
+            <div className="card-top-bar"></div>
+
+            {/* Icon */}
+
+            <motion.div
+    className={`
+        dashboard-icon
+
+        ${title === "Web Platform" ? "icon-web" : ""}
+
+        ${title === "Search Growth" ? "icon-seo" : ""}
+
+        ${title === "Brand Identity" ? "icon-brand" : ""}
+
+        ${title === "AI Solutions" ? "icon-ai" : ""}
+
+        ${active ? "icon-active" : ""}
+    `}
+
+    animate={{
+        rotate: active
+            ? [0, -5, 5, 0]
+            : 0,
+
+        scale: active
+            ? [1, 1.15, 1]
+            : 1,
+    }}
+
+    transition={{
+        duration: 1.2,
+
+        repeat: active
+            ? Infinity
+            : 0,
+
+        ease: "easeInOut",
+    }}
+>
+    {icon}
+</motion.div>
+
+            {/* Title */}
+
+            <h3>{title}</h3>
+
+            {/* Subtitle */}
+
+            <p>{subtitle}</p>
+
+            {/* Status */}
 
             <div className="dashboard-status">
 
                 <span className="status-light"></span>
 
-                ONLINE
+                <span>{status}</span>
 
             </div>
 
-        </div>
+        </motion.div>
 
     );
 

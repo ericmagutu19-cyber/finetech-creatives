@@ -1192,3 +1192,38 @@ border-radius:30px;
 margin-bottom:12px;
 
 }
+/* ==========================================================
+   LAZY SECTION FALLBACK
+========================================================== */
+
+.section-loading {
+    width: 100%;
+    min-height: 120px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505,
+            #080a08,
+            #050505
+        );
+}
+/* ==========================================================
+   LAZY PAGE LOADER
+========================================================== */
+
+.admin-page-loading {
+    min-height: 100vh;
+
+    display: grid;
+    place-items: center;
+
+    background: #050505;
+
+    color: #c8ff00;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+}

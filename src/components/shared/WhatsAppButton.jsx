@@ -1,5 +1,5 @@
 import { FaWhatsapp } from "react-icons/fa";
-import { trackEvent } from "../utils/analytics";
+import { trackEvent } from "../../utils/analytics";
 
 export default function WhatsAppButton() {
   return (

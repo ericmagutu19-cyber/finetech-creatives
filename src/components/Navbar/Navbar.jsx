@@ -13,6 +13,11 @@ export default function Navbar() {
           src={logo}
           alt="Fine Tech Creatives"
           className="navbar-logo"
+          width="64"
+          height="64"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
         />
 
         {/* Desktop Menu */}

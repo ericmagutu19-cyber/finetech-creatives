@@ -1,36 +1,139 @@
+import {
+  lazy,
+  Suspense,
+} from "react";
+
 import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
-import Services from "../components/Services/Services";
-import WhyUs from "../components/WhyUs";
-import Stats from "../components/Stats";
-import Portfolio from "../components/Portfolio/Portfolio";
-import Results from "../components/Results";
-import Packages from "../components/Packages";
-import Testimonials from "../components/Testimonials/Testimonials";
-import AuditForm from "../components/AuditForm";
-import WhatsAppButton from "../components/WhatsAppButton";
-import Process from "../components/Process";
-import CTA from "../components/CTA";
-import Footer from "../components/Footer/Footer";
-import { companyData } from "../config/companyData";
+
+
+/* ==========================================================
+   LAZY-LOADED PAGE SECTIONS
+
+   Navbar and Hero remain eager because they are visible
+   immediately when the page opens.
+========================================================== */
+
+const Services = lazy(() =>
+  import("../components/Services/Services")
+);
+
+const WhyChooseUs = lazy(() =>
+  import(
+    "../components/WhyChooseUs/WhyChooseUs"
+  )
+);
+
+const Stats = lazy(() =>
+  import("../components/Results/Stats")
+);
+
+const Process = lazy(() =>
+  import("../components/Process/Process")
+);
+
+const FeaturedCaseStudy = lazy(() =>
+  import(
+    "../components/FeaturedCaseStudy/FeaturedCaseStudy"
+  )
+);
+
+const Portfolio = lazy(() =>
+  import("../components/Portfolio/Portfolio")
+);
+
+const Results = lazy(() =>
+  import("../components/Results/Results")
+);
+
+const Packages = lazy(() =>
+  import("../components/Packages/Packages")
+);
+
+const Testimonials = lazy(() =>
+  import(
+    "../components/Testimonials/Testimonials"
+  )
+);
+
+const AuditForm = lazy(() =>
+  import("../components/Audit/AuditForm")
+);
+
+const CTA = lazy(() =>
+  import("../components/CTA/CTA")
+);
+
+const Footer = lazy(() =>
+  import("../components/Footer/Footer")
+);
+
+const WhatsAppButton = lazy(() =>
+  import(
+    "../components/shared/WhatsAppButton"
+  )
+);
+
+
+/* ==========================================================
+   SECTION FALLBACK
+
+   This reserves a little space while the lower section
+   bundle is loading and avoids a blank-page appearance.
+========================================================== */
+
+function SectionFallback() {
+  return (
+    <div
+      className="section-loading"
+      aria-hidden="true"
+    />
+  );
+}
+
+
+/* ==========================================================
+   HOME PAGE
+========================================================== */
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Services />
-      <WhyUs />
-      <Stats />
-      <Process />
-      <Portfolio />
-      <Results />
-      <Packages />
-      <Testimonials />
-      <AuditForm />
-      <CTA />
-      <Footer />
-      <WhatsAppButton />
+
+      <main>
+        <Hero />
+
+        <Suspense fallback={<SectionFallback />}>
+          <Services />
+
+          <WhyChooseUs />
+
+          <Stats />
+
+          <Process />
+
+          <FeaturedCaseStudy />
+
+          <Portfolio />
+
+          <Results />
+
+          <Packages />
+
+          <Testimonials />
+
+          <AuditForm />
+
+          <CTA />
+        </Suspense>
+      </main>
+
+      <Suspense fallback={null}>
+        <Footer />
+
+        <WhatsAppButton />
+      </Suspense>
     </>
   );
 }

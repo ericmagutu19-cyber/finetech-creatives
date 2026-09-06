@@ -1,0 +1,736 @@
+/* ==========================================================
+   OUR GROWTH PROCESS
+   Fine Tech Creatives
+========================================================== */
+
+.process-section {
+    position: relative;
+
+    padding: 125px 24px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #070907 50%,
+            #050505 100%
+        );
+}
+
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+.process-background-grid {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.022) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.022) 1px,
+            transparent 1px
+        );
+
+    background-size: 76px 76px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #000 18%,
+            #000 82%,
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.process-background-glow {
+    position: absolute;
+
+    top: 35%;
+    left: 50%;
+
+    width: 620px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(200, 255, 0, 0.05);
+
+    filter: blur(135px);
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.process-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.process-header {
+    max-width: 840px;
+
+    margin: 0 auto 78px;
+
+    text-align: center;
+}
+
+.process-eyebrow {
+    display: inline-flex;
+
+    margin-bottom: 21px;
+    padding: 8px 15px;
+
+    border:
+        1px solid
+        rgba(200, 255, 0, 0.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(200, 255, 0, 0.055);
+
+    color: #c8ff00;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+}
+
+.process-header h2 {
+    margin: 0 0 22px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            2.55rem,
+            5vw,
+            4.7rem
+        );
+
+    font-weight: 800;
+
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+}
+
+.process-header h2 span {
+    display: block;
+
+    color: #c8ff00;
+
+    text-shadow:
+        0 0 34px
+        rgba(200, 255, 0, 0.12);
+}
+
+.process-header p {
+    max-width: 730px;
+
+    margin: 0 auto;
+
+    color: #a0a49d;
+
+    font-size: 1rem;
+    line-height: 1.82;
+}
+
+
+/* ==========================================================
+   TIMELINE
+========================================================== */
+
+.process-timeline {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+/* ==========================================================
+   CONNECTING TRACK
+========================================================== */
+
+.process-track {
+    position: absolute;
+
+    top: 57px;
+    right: 8%;
+    left: 8%;
+
+    height: 2px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    z-index: 0;
+}
+
+.process-track span {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c8ff00 15%,
+            #7eeeff 42%,
+            #c99bff 68%,
+            #c8ff00 90%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(200, 255, 0, 0.38);
+
+    transform-origin: left;
+}
+
+
+/* ==========================================================
+   PROCESS STEP
+========================================================== */
+
+.process-step {
+    position: relative;
+    z-index: 2;
+
+    min-height: 330px;
+
+    padding: 24px 22px 28px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.075);
+
+    border-radius: 23px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 255, 255, 0.06),
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 24px 55px
+        rgba(0, 0, 0, 0.34);
+
+    transition:
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.process-step:hover {
+    border-color:
+        color-mix(
+            in srgb,
+            var(--process-accent, #c8ff00) 34%,
+            transparent
+        );
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            color-mix(
+                in srgb,
+                var(--process-accent, #c8ff00) 9%,
+                transparent
+            ),
+            transparent 46%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.022)
+        );
+
+    box-shadow:
+        0 34px 72px
+        rgba(0, 0, 0, 0.42),
+        0 0 34px
+        var(--process-glow, rgba(200, 255, 0, 0.07));
+}
+
+
+/* ==========================================================
+   STEP HEAD
+========================================================== */
+
+.process-step-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 32px;
+}
+
+.process-marker {
+    position: relative;
+
+    width: 66px;
+    height: 66px;
+
+    display: grid;
+    place-items: center;
+}
+
+.process-marker-ring {
+    position: absolute;
+
+    inset: 0;
+
+    border:
+        1px dashed
+        color-mix(
+            in srgb,
+            var(--process-accent, #c8ff00) 42%,
+            transparent
+        );
+
+    border-radius: 50%;
+
+    animation:
+        processRingRotate
+        10s
+        linear
+        infinite;
+}
+
+.process-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--process-accent, #c8ff00) 30%,
+            transparent
+        );
+
+    border-radius: 15px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--process-accent, #c8ff00) 10%,
+            #080a08
+        );
+
+    color:
+        var(--process-accent, #c8ff00);
+
+    font-size: 1.15rem;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.process-step:hover .process-icon {
+    transform:
+        scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 13px
+            var(--process-glow, rgba(200, 255, 0, 0.5))
+        );
+}
+
+.process-step:hover .process-marker-ring {
+    animation-duration: 3.5s;
+}
+
+.process-number {
+    color:
+        rgba(255, 255, 255, 0.18);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* ==========================================================
+   STEP CONTENT
+========================================================== */
+
+.process-stage {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color:
+        var(--process-accent, #c8ff00);
+
+    font-size: 0.66rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.process-step h3 {
+    margin: 0 0 14px;
+
+    color: #ffffff;
+
+    font-size: 1.18rem;
+    line-height: 1.3;
+}
+
+.process-step p {
+    margin: 0;
+
+    color: #969a93;
+
+    font-size: 0.84rem;
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   ARROW
+========================================================== */
+
+.process-arrow {
+    position: absolute;
+
+    top: 48px;
+    right: -15px;
+
+    width: 28px;
+    height: 20px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(200, 255, 0, 0.12);
+
+    border-radius: 999px;
+
+    background: #080a08;
+
+    color: #c8ff00;
+
+    font-size: 0.58rem;
+
+    box-shadow:
+        0 0 12px
+        rgba(200, 255, 0, 0.08);
+
+    z-index: 4;
+}
+
+
+/* ==========================================================
+   BOTTOM LIGHT
+========================================================== */
+
+.process-step-light {
+    position: absolute;
+
+    right: 23px;
+    bottom: 0;
+    left: 23px;
+
+    height: 1px;
+
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--process-accent, #c8ff00),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        var(--process-glow, rgba(200, 255, 0, 0.5));
+
+    transition:
+        opacity 0.35s ease;
+}
+
+.process-step:hover .process-step-light {
+    opacity: 1;
+}
+
+
+/* ==========================================================
+   STEP PERSONALITIES
+========================================================== */
+
+.process-discovery {
+    --process-accent: #7eeeff;
+    --process-glow: rgba(0, 210, 255, 0.48);
+}
+
+.process-audit {
+    --process-accent: #ffd66b;
+    --process-glow: rgba(255, 190, 55, 0.45);
+}
+
+.process-strategy {
+    --process-accent: #c99bff;
+    --process-glow: rgba(160, 80, 255, 0.48);
+}
+
+.process-implementation {
+    --process-accent: #7dffb2;
+    --process-glow: rgba(0, 255, 130, 0.46);
+}
+
+.process-growth {
+    --process-accent: #c8ff00;
+    --process-glow: rgba(200, 255, 0, 0.5);
+}
+
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes processRingRotate {
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+/* ==========================================================
+   FOOTER NOTE
+========================================================== */
+
+.process-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    max-width: 750px;
+
+    margin: 48px auto 0;
+
+    text-align: center;
+}
+
+.process-footer p {
+    margin: 0;
+
+    color: #858982;
+
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
+.process-footer-dot {
+    flex: 0 0 auto;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #c8ff00;
+
+    box-shadow:
+        0 0 11px #c8ff00;
+
+    animation:
+        processFooterPulse
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+@keyframes processFooterPulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.5);
+    }
+}
+
+
+/* ==========================================================
+   MEDIUM SCREENS
+========================================================== */
+
+@media (max-width: 1120px) {
+
+    .process-timeline {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .process-track,
+    .process-arrow {
+        display: none;
+    }
+
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 780px) {
+
+    .process-timeline {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE VERTICAL TIMELINE
+========================================================== */
+
+@media (max-width: 560px) {
+
+    .process-section {
+        padding:
+            90px
+            18px;
+    }
+
+    .process-header {
+        margin-bottom: 50px;
+    }
+
+    .process-header h2 {
+        font-size:
+            clamp(
+                2.25rem,
+                12vw,
+                3.5rem
+            );
+    }
+
+    .process-header p {
+        font-size: 0.93rem;
+        line-height: 1.7;
+    }
+
+    .process-timeline {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .process-step {
+        min-height: auto;
+
+        padding: 24px;
+
+        border-radius: 21px;
+    }
+
+    .process-footer {
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .process-marker-ring,
+    .process-footer-dot {
+        animation: none;
+    }
+
+    .process-step,
+    .process-icon,
+    .process-step-light {
+        transition: none !important;
+    }
+
+}

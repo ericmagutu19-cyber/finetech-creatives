@@ -1,145 +1,462 @@
 import {
-  FaWhatsapp,
+  FaArrowUp,
   FaEnvelope,
-  FaInstagram,
   FaGlobe,
+  FaInstagram,
   FaMapMarkerAlt,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 import { companyData } from "../../config/companyData";
 
+import "./Footer.css";
+
+
+/* ==========================================================
+   FOOTER LINKS
+========================================================== */
+
+const quickLinks = [
+  {
+    label: "Home",
+    href: "#home",
+  },
+  {
+    label: "Services",
+    href: "#services",
+  },
+  {
+    label: "Why Choose Us",
+    href: "#why-us",
+  },
+  {
+    label: "Our Process",
+    href: "#process",
+  },
+  {
+    label: "Our Projects",
+    href: "#portfolio",
+  },
+  {
+    label: "Free Growth Audit",
+    href: "#audit",
+  },
+];
+
+
+const serviceLinks = [
+  {
+    label: "Website Solutions",
+    href: "#services",
+  },
+  {
+    label: "SEO & Google Visibility",
+    href: "#services",
+  },
+  {
+    label: "Brand Identity",
+    href: "#services",
+  },
+  {
+    label: "Social Media Marketing",
+    href: "#services",
+  },
+  {
+    label: "E-Commerce Websites",
+    href: "#services",
+  },
+  {
+    label: "Growth Packages",
+    href: "#packages",
+  },
+];
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
 export default function Footer() {
+  const currentYear =
+    new Date().getFullYear();
+
+
+  const whatsappMessage =
+    encodeURIComponent(
+      `Hello Fine Tech Creatives,
+
+I would like to learn more about your digital services.`
+    );
+
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+
   return (
     <footer
-      style={{
-        marginTop: "80px",
-        background: "#111",
-        borderTop: "1px solid #222",
-        padding: "60px 20px 30px",
-      }}
+      className="site-footer"
     >
-      <div
-        className="container"
-        style={{
-          display: "grid",
-          gridTemplateColumns:
-            "repeat(auto-fit,minmax(250px,1fr))",
-          gap: "40px",
-          alignItems: "start",
-        }}
-      >
-        {/* Company */}
+      {/* Background effects */}
 
-        <div>
-          <h2 className="green">
-            {companyData.name}
-          </h2>
+      <div className="footer-background-grid" />
 
-          <p
-            style={{
-              marginTop: "15px",
-              lineHeight: "1.8",
-            }}
-          >
-            {companyData.slogan}
-          </p>
+      <div className="footer-glow footer-glow-left" />
+
+      <div className="footer-glow footer-glow-right" />
+
+
+      <div className="footer-container">
+
+        {/* ==================================================
+            FOOTER MAIN CONTENT
+        ================================================== */}
+
+        <div className="footer-main">
+
+          {/* ==================================================
+              COMPANY INFORMATION
+          ================================================== */}
+
+          <div className="footer-brand">
+
+            <a
+              href="#home"
+              className="footer-brand-name"
+            >
+              {companyData.name}
+            </a>
+
+
+            <p className="footer-slogan">
+              {companyData.slogan}
+            </p>
+
+
+            <p className="footer-description">
+              We help businesses build stronger digital
+              foundations through professional websites,
+              search visibility, branding, digital marketing
+              and practical growth solutions.
+            </p>
+
+
+            <div className="footer-social-links">
+
+              <a
+                href={`https://wa.me/254101709129?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with Fine Tech Creatives on WhatsApp"
+                className="footer-social-link footer-whatsapp"
+              >
+                <FaWhatsapp />
+              </a>
+
+
+              <a
+                href="https://www.instagram.com/fine_tech_creates/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Fine Tech Creatives on Instagram"
+                className="footer-social-link footer-instagram"
+              >
+                <FaInstagram />
+              </a>
+
+
+              <a
+                href={`mailto:${companyData.email}`}
+                aria-label="Email Fine Tech Creatives"
+                className="footer-social-link footer-email"
+              >
+                <FaEnvelope />
+              </a>
+
+            </div>
+
+
+            <div className="footer-status">
+
+              <span />
+
+              Available for new digital projects
+
+            </div>
+
+          </div>
+
+
+          {/* ==================================================
+              QUICK LINKS
+          ================================================== */}
+
+          <div className="footer-column">
+
+            <h3>
+              Quick Links
+            </h3>
+
+
+            <nav
+              className="footer-links"
+              aria-label="Footer navigation"
+            >
+              {quickLinks.map((link) => (
+
+                <a
+                  key={link.label}
+                  href={link.href}
+                >
+                  <span />
+
+                  {link.label}
+                </a>
+
+              ))}
+            </nav>
+
+          </div>
+
+
+          {/* ==================================================
+              SERVICES
+          ================================================== */}
+
+          <div className="footer-column">
+
+            <h3>
+              Services
+            </h3>
+
+
+            <nav
+              className="footer-links"
+              aria-label="Footer services"
+            >
+              {serviceLinks.map((link) => (
+
+                <a
+                  key={link.label}
+                  href={link.href}
+                >
+                  <span />
+
+                  {link.label}
+                </a>
+
+              ))}
+            </nav>
+
+          </div>
+
+
+          {/* ==================================================
+              CONTACT
+          ================================================== */}
+
+          <div className="footer-column footer-contact-column">
+
+            <h3>
+              Contact
+            </h3>
+
+
+            <div className="footer-contact-list">
+
+              <a
+                href={`https://wa.me/254101709129?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-item"
+              >
+                <span className="footer-contact-icon">
+                  <FaWhatsapp />
+                </span>
+
+                <div>
+
+                  <small>
+                    WhatsApp
+                  </small>
+
+                  <strong>
+                    {companyData.phone}
+                  </strong>
+
+                </div>
+              </a>
+
+
+              <a
+                href={`mailto:${companyData.email}`}
+                className="footer-contact-item"
+              >
+                <span className="footer-contact-icon">
+                  <FaEnvelope />
+                </span>
+
+                <div>
+
+                  <small>
+                    Email
+                  </small>
+
+                  <strong>
+                    {companyData.email}
+                  </strong>
+
+                </div>
+              </a>
+
+
+              <a
+                href="https://www.instagram.com/fine_tech_creates/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-item"
+              >
+                <span className="footer-contact-icon">
+                  <FaInstagram />
+                </span>
+
+                <div>
+
+                  <small>
+                    Instagram
+                  </small>
+
+                  <strong>
+                    @fine_tech_creates
+                  </strong>
+
+                </div>
+              </a>
+
+
+              <div className="footer-contact-item">
+
+                <span className="footer-contact-icon">
+                  <FaMapMarkerAlt />
+                </span>
+
+                <div>
+
+                  <small>
+                    Location
+                  </small>
+
+                  <strong>
+                    Nairobi, Kenya
+                  </strong>
+
+                </div>
+              </div>
+
+
+              <a
+                href={companyData.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-item"
+              >
+                <span className="footer-contact-icon">
+                  <FaGlobe />
+                </span>
+
+                <div>
+
+                  <small>
+                    Website
+                  </small>
+
+                  <strong>
+                    {companyData.website}
+                  </strong>
+
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Quick Links */}
 
-        <div>
-          <h3 className="green">
-            Quick Links
-          </h3>
+        {/* ==================================================
+            FOOTER AUDIT STRIP
+        ================================================== */}
+
+        <div className="footer-audit-strip">
+
+          <div>
+
+            <span>
+              NOT SURE WHERE TO START?
+            </span>
+
+            <h3>
+              Get a free review of your current digital presence.
+            </h3>
+
+          </div>
+
+
+          <a href="#audit">
+            Request Free Audit
+          </a>
+
+        </div>
+
+
+        {/* ==================================================
+            FOOTER BOTTOM
+        ================================================== */}
+
+        <div className="footer-bottom">
 
           <p>
-            <a href="/">Home</a>
+            © {currentYear} {companyData.name}. All Rights Reserved.
           </p>
 
-          <p>
+
+          <div className="footer-bottom-links">
+
             <a href="#services">
               Services
             </a>
-          </p>
 
-          <p>
             <a href="#portfolio">
-              Portfolio
+              Projects
             </a>
-          </p>
 
-          <p>
-            <a href="#contact">
+            <a href="#audit">
               Contact
             </a>
-          </p>
+
+          </div>
+
+
+          <button
+            type="button"
+            className="footer-back-to-top"
+            onClick={scrollToTop}
+            aria-label="Back to top"
+          >
+            <FaArrowUp />
+
+            <span>
+              Back to top
+            </span>
+          </button>
+
         </div>
 
-        {/* Contact */}
-
-        <div>
-          <h3 className="green">
-            Contact
-          </h3>
-
-          <p>
-            <FaWhatsapp
-              className="footer-icon"
-            />
-            {" "}
-            {companyData.phone}
-          </p>
-
-          <p>
-            <FaEnvelope
-              className="footer-icon"
-            />
-            {" "}
-            {companyData.email}
-          </p>
-
-          <p>
-            <FaInstagram
-              className="footer-icon"
-            />
-            {" "}
-            @fine_tech_creates
-          </p>
-
-          <p>
-            <FaMapMarkerAlt
-              className="footer-icon"
-            />
-            {" "}
-            Nairobi, Kenya
-          </p>
-
-          <p>
-            <FaGlobe
-              className="footer-icon"
-            />
-            {" "}
-            {companyData.website}
-          </p>
-        </div>
-      </div>
-
-      <hr
-        style={{
-          margin: "50px 0 20px",
-          borderColor: "#222",
-        }}
-      />
-
-      <div
-        style={{
-          textAlign: "center",
-          color: "#888",
-        }}
-      >
-        © {new Date().getFullYear()}{" "}
-        {companyData.name}.
-        All Rights Reserved.
       </div>
     </footer>
   );

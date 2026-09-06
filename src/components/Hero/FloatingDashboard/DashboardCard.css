@@ -1,209 +1,763 @@
-/* ==========================================
-   DASHBOARD CARD V2
-========================================== */
+/* ==========================================================
+   DASHBOARD CARD V3
+   Fine Tech Creatives
+========================================================== */
 
-.dashboard-card{
+.dashboard-card {
 
-    position:relative;
+    position: relative;
 
-    width:185px;
-    height:210px;
+    width: 185px;
+    height: 210px;
 
-    flex-shrink:0;
+    flex-shrink: 0;
 
-    display:flex;
-flex-direction:column;
+    display: flex;
+    flex-direction: column;
 
-align-items:center;
+    align-items: center;
+    justify-content: space-between;
 
-justify-content:space-between;
+    gap: 10px;
 
-gap:10px;
-
-    border-radius:26px;
+    border-radius: 26px;
 
     background:
-    linear-gradient(
-    180deg,
-    rgba(255,255,255,.05),
-    rgba(255,255,255,.02));
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
 
-    backdrop-filter:blur(20px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-    border:1px solid rgba(255,255,255,.08);
+    border:
+        1px solid
+        rgba(255,255,255,.08);
 
-    overflow:hidden;
+    overflow: hidden;
 
     z-index: 4;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
 }
 
-/* ========================= */
 
-.dashboard-card::before{
+/* ==========================================================
+   TOP ENERGY LINE
+========================================================== */
 
-content:"";
+.dashboard-card::before {
 
-width:100%;
+    content: "";
 
-height:3px;
+    position: absolute;
 
-background:
-linear-gradient(
-90deg,
-transparent,
-#C8FF00,
-transparent);
+    top: 0;
+    left: 0;
 
-opacity:.7;
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #C8FF00,
+            transparent
+        );
+
+    opacity: .7;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.dashboard-card:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    border-color:
+        rgba(200,255,0,.25);
+
+    box-shadow:
+        0 30px 60px
+        rgba(200,255,0,.15);
+}
+
+
+/* ==========================================================
+   ACTIVE CARD
+========================================================== */
+
+.dashboard-card.active {
+
+    border-color:
+        rgba(200,255,0,.28);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(200,255,0,.055),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        0 22px 48px
+        rgba(0,0,0,.38),
+
+        0 0 24px
+        rgba(200,255,0,.07);
+}
+
+
+/* ==========================================================
+   ICON
+========================================================== */
+
+.dashboard-icon {
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-size: 1.8rem;
+
+    margin-bottom: 6px;
+
+    transition:
+        color .35s ease,
+        filter .35s ease,
+        transform .35s ease;
+}
+
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.dashboard-card h3 {
+
+    margin: 0;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: .06em;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.dashboard-card p {
+
+    margin: 0;
+
+    max-width: 140px;
+
+    color: #b8b8b8;
+
+    font-size: .9rem;
+
+    line-height: 1.45;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.dashboard-status {
+
+    position: relative;
+
+    min-width: 115px;
+
+    margin-top: 18px;
+
+    padding:
+        9px
+        16px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(200,255,0,.12);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(200,255,0,.12),
+            rgba(200,255,0,.05)
+        );
+
+    color: #C8FF00;
+
+    font-size: .78rem;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.dashboard-status span:last-child {
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================================
+   ACTIVE STATUS
+========================================================== */
+
+.dashboard-card.active
+.dashboard-status {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(200,255,0,.20),
+            rgba(200,255,0,.10)
+        );
+
+    border-color:
+        rgba(200,255,0,.35);
+
+    box-shadow:
+        0 0 18px
+        rgba(200,255,0,.18);
+}
+
+
+/* ==========================================================
+   STATUS LIGHT
+========================================================== */
+
+.status-light {
+
+    width: 10px;
+    height: 10px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #C8FF00;
+
+    box-shadow:
+        0 0 8px #C8FF00,
+        0 0 18px rgba(200,255,0,.55),
+        0 0 28px rgba(200,255,0,.25);
+
+    animation:
+        statusLightPulse
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* ==========================================================
+   STATUS LIGHT PULSE
+========================================================== */
+
+@keyframes statusLightPulse {
+
+    0% {
+
+        transform:
+            scale(.9);
+
+        opacity:
+            .65;
+
+    }
+
+
+    50% {
+
+        transform:
+            scale(1.45);
+
+        opacity:
+            1;
+
+        box-shadow:
+            0 0 10px #C8FF00,
+            0 0 24px rgba(200,255,0,.9),
+            0 0 40px rgba(200,255,0,.45);
+
+    }
+
+
+    100% {
+
+        transform:
+            scale(.9);
+
+        opacity:
+            .65;
+
+    }
 
 }
 
-/* ========================= */
 
-.dashboard-card:hover{
+/* ==========================================================
+   SERVICE ICON PERSONALITY GLOWS
+========================================================== */
 
-transform:
-translateY(-10px)
-scale(1.03);
 
-border-color:
-rgba(200,255,0,.25);
+/* WEB PLATFORM */
 
-box-shadow:
-0 30px 60px rgba(200,255,0,.15);
+.icon-web.icon-active {
+
+    color: #7eeeff;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(126,238,255,.95)
+        )
+
+        drop-shadow(
+            0 0 16px
+            rgba(0,210,255,.6)
+        );
+}
+
+
+/* SEARCH GROWTH */
+
+.icon-seo.icon-active {
+
+    color: #7dffb2;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(125,255,178,.95)
+        )
+
+        drop-shadow(
+            0 0 16px
+            rgba(0,255,130,.55)
+        );
+}
+
+
+/* BRAND IDENTITY */
+
+.icon-brand.icon-active {
+
+    color: #c99bff;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(201,155,255,.95)
+        )
+
+        drop-shadow(
+            0 0 16px
+            rgba(160,80,255,.6)
+        );
+}
+
+
+/* AI SOLUTIONS */
+
+.icon-ai.icon-active {
+
+    color: #8db8ff;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(141,184,255,.95)
+        )
+
+        drop-shadow(
+            0 0 18px
+            rgba(70,130,255,.65)
+        );
+}
+
+
+/* ==========================================================
+   MOBILE PERFORMANCE MODE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    /* ------------------------------------------------------
+       CARD GLASS
+       Reduce blur workload on four visible cards.
+    ------------------------------------------------------ */
+
+    .dashboard-card {
+
+        backdrop-filter:
+            blur(8px);
+
+        -webkit-backdrop-filter:
+            blur(8px);
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(18,20,16,.90),
+                rgba(8,10,7,.86)
+            );
+
+        border-color:
+            rgba(255,255,255,.07);
+
+        box-shadow:
+            0 15px 30px
+            rgba(0,0,0,.32);
+
+        transition:
+            border-color .25s ease,
+            background .25s ease;
+    }
+
+
+    /* ------------------------------------------------------
+       MOBILE DOES NOT NEED HOVER MOVEMENT
+    ------------------------------------------------------ */
+
+    .dashboard-card:hover {
+
+        transform:
+            none;
+
+        box-shadow:
+            0 15px 30px
+            rgba(0,0,0,.32);
+
+    }
+
+
+    /* ------------------------------------------------------
+       ACTIVE CARD
+    ------------------------------------------------------ */
+
+    .dashboard-card.active {
+
+        border-color:
+            rgba(200,255,0,.22);
+
+        box-shadow:
+            0 18px 34px
+            rgba(0,0,0,.36),
+
+            0 0 14px
+            rgba(200,255,0,.06);
+    }
+
+
+    /* ------------------------------------------------------
+       TOP ENERGY LINE
+    ------------------------------------------------------ */
+
+    .dashboard-card::before {
+
+        height:
+            2px;
+
+        opacity:
+            .48;
+    }
+
+
+    /* ------------------------------------------------------
+       ICON
+    ------------------------------------------------------ */
+
+    .dashboard-icon {
+
+        transition:
+            color .25s ease,
+            transform .25s ease;
+
+    }
+
+
+    /* ------------------------------------------------------
+       REMOVE MULTI-LAYER ICON GLOWS
+       Keep individual service colors.
+    ------------------------------------------------------ */
+
+    .icon-web.icon-active {
+
+        color:
+            #7eeeff;
+
+        filter:
+            drop-shadow(
+                0 0 6px
+                rgba(126,238,255,.42)
+            );
+    }
+
+
+    .icon-seo.icon-active {
+
+        color:
+            #7dffb2;
+
+        filter:
+            drop-shadow(
+                0 0 6px
+                rgba(125,255,178,.42)
+            );
+    }
+
+
+    .icon-brand.icon-active {
+
+        color:
+            #c99bff;
+
+        filter:
+            drop-shadow(
+                0 0 6px
+                rgba(201,155,255,.42)
+            );
+    }
+
+
+    .icon-ai.icon-active {
+
+        color:
+            #8db8ff;
+
+        filter:
+            drop-shadow(
+                0 0 6px
+                rgba(141,184,255,.42)
+            );
+    }
+
+
+    /* ------------------------------------------------------
+       STATUS PANEL
+    ------------------------------------------------------ */
+
+    .dashboard-status {
+
+        background:
+            rgba(200,255,0,.06);
+
+        box-shadow:
+            none;
+
+        transition:
+            border-color .25s ease,
+            background .25s ease;
+    }
+
+
+    .dashboard-card.active
+    .dashboard-status {
+
+        background:
+            rgba(200,255,0,.10);
+
+        border-color:
+            rgba(200,255,0,.24);
+
+        box-shadow:
+            0 0 8px
+            rgba(200,255,0,.07);
+
+    }
+
+
+    /* ------------------------------------------------------
+       STATUS LIGHT
+       One glow instead of three.
+    ------------------------------------------------------ */
+
+    .status-light {
+
+        width:
+            8px;
+
+        height:
+            8px;
+
+        box-shadow:
+            0 0 6px
+            rgba(200,255,0,.7);
+
+        animation:
+            mobileStatusPulse
+            2.8s
+            ease-in-out
+            infinite;
+
+    }
 
 }
 
-/* ========================= */
 
-.dashboard-icon{
+/* ==========================================================
+   MOBILE STATUS PULSE
+========================================================== */
 
-    width:58px;
+@keyframes mobileStatusPulse {
 
-    height:58px;
+    0%,
+    100% {
 
-    border-radius:18px;
+        transform:
+            scale(.9);
 
-    display:flex;
+        opacity:
+            .65;
 
-    align-items:center;
+    }
 
-    justify-content:center;
 
-    font-size:1.8rem;
+    50% {
 
-    margin-bottom:6px;
+        transform:
+            scale(1.25);
 
-}
+        opacity:
+            1;
 
-/* ========================= */
-
-.dashboard-card h3{
-
-    font-size:1.35rem;
-
-    font-weight:700;
-
-    line-height:1.1;
-
-    letter-spacing:.06em;
-
-    text-align:center;
-
-    margin:0;
+    }
 
 }
 
-/* ========================= */
 
-.dashboard-card p{
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
 
-margin:0;
+@media (max-width: 480px) {
 
-font-size:.9rem;
+    .dashboard-card {
 
-line-height:1.45;
+        backdrop-filter:
+            blur(5px);
 
-max-width:140px;
+        -webkit-backdrop-filter:
+            blur(5px);
 
-    color:#b8b8b8;
+        box-shadow:
+            0 12px 24px
+            rgba(0,0,0,.28);
+    }
 
-    text-align:center;
 
-}
+    .icon-web.icon-active,
+    .icon-seo.icon-active,
+    .icon-brand.icon-active,
+    .icon-ai.icon-active {
 
-/* ========================= */
+        filter:
+            none;
 
-.dashboard-status{
+    }
 
-display:flex;
 
-align-items:center;
+    .dashboard-card.active
+    .dashboard-status {
 
-gap:8px;
+        box-shadow:
+            none;
 
-padding:8px 18px;
-
-border-radius:999px;
-
-background:
-rgba(200,255,0,.08);
-
-font-size:.82rem;
-
-font-weight:600;
-
-letter-spacing:1px;
-
-color:#C8FF00;
+    }
 
 }
 
-/* ========================= */
 
-.status-light{
+/* ==========================================================
+   TOUCH DEVICES
+   Prevent hover animation from being triggered artificially.
+========================================================== */
 
-width:8px;
+@media (
+    hover: none
+) and (
+    pointer: coarse
+) {
 
-height:8px;
+    .dashboard-card:hover {
 
-border-radius:50%;
+        transform:
+            none;
 
-background:#C8FF00;
-
-box-shadow:
-0 0 15px rgba(200,255,0,.8);
-
-animation:pulseLight 2s infinite;
-
-}
-
-/* ========================= */
-
-@keyframes pulseLight{
-
-0%{
-
-transform:scale(1);
-
-opacity:1;
+    }
 
 }
 
-50%{
 
-transform:scale(1.5);
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
 
-opacity:.4;
+@media (
+    prefers-reduced-motion: reduce
+) {
 
-}
+    .dashboard-card,
+    .dashboard-icon,
+    .dashboard-status,
+    .status-light {
 
-100%{
+        animation:
+            none !important;
 
-transform:scale(1);
+        transition:
+            none !important;
 
-opacity:1;
-
-}
+    }
 
 }

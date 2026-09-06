@@ -1,66 +1,1867 @@
-.dashboard-core{
+/* ==========================================================
+   DASHBOARD CORE
+   Fine Tech Creatives
+========================================================== */
 
-    position:relative;
+.dashboard-core {
+    position: relative;
 
-    width:205px;
-    min-height:350px;
+    width: 200px;
+    min-height: 280px;
 
-    border-radius:32px;
+    padding: 20px;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    text-align:center;
+    text-align: center;
 
-    overflow:hidden;
+    border-radius: 32px;
+    overflow: hidden;
+    isolation: isolate;
 
     background:
-    linear-gradient(
-        180deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.03)
-    );
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(200, 255, 0, 0.06),
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.025)
+        );
 
-    backdrop-filter:blur(24px);
+    border: 1px solid rgba(200, 255, 0, 0.15);
 
-    border:1px solid rgba(200,255,0,.12);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
 
     box-shadow:
-        0 35px 70px rgba(0,0,0,.45),
-        0 0 60px rgba(197,255,0,.08);
+        0 35px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 45px rgba(200, 255, 0, 0.08);
 
-    z-index:15;
-}
-.dashboard-core > *{
-    position:relative;
-    z-index:2;
-}
+    z-index: 20;
 
-.core-logo{
-    width:78px;
-    margin-top:8px;
-    margin-bottom:12px;
+    transition:
+        border-color 0.4s ease,
+        background 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
-.core-company{
-    margin-bottom:22px;
-    letter-spacing:4px;
-    font-size:.9rem;
+
+/* ==========================================================
+   CONTENT LAYER
+========================================================== */
+
+/* ==========================================================
+   CORE CONTENT LAYER
+
+   Decorative effects are excluded so they remain
+   absolutely positioned behind the visible content.
+========================================================== */
+
+.dashboard-core > *:not(
+    .core-glow,
+    .core-hologram,
+    .core-reflection,
+    .scan-line,
+    .core-pulse,
+    .core-burst-ring,
+    .core-impact-flash
+) {
+    position: relative;
+    z-index: 5;
 }
 
-.dashboard-core h2{
-    margin:0 0 18px;
-    line-height:1.1;
+
+/* ==========================================================
+   ACTIVE CORE
+========================================================== */
+
+.dashboard-core.core-active {
+    border-color: rgba(200, 255, 0, 0.38);
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(200, 255, 0, 0.1),
+            transparent 46%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.04)
+        );
+
+    box-shadow:
+        0 40px 90px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 0 40px rgba(200, 255, 0, 0.24),
+        0 0 85px rgba(200, 255, 0, 0.15),
+        0 0 130px rgba(200, 255, 0, 0.07);
 }
 
-.dashboard-core p{
-    margin:0 0 24px;
-    line-height:1.5;
-    max-width:220px;
+
+/* ==========================================================
+   ONLINE STATE
+========================================================== */
+
+.dashboard-core.core-online {
+    border-color: rgba(200, 255, 0, 0.46);
+
+    box-shadow:
+        0 40px 90px rgba(0, 0, 0, 0.68),
+        inset 0 1px 0 rgba(255, 255, 255, 0.13),
+        0 0 42px rgba(200, 255, 0, 0.28),
+        0 0 92px rgba(200, 255, 0, 0.18);
 }
-.core-status{
-    margin-top:auto;
-    margin-bottom:6px;
+
+
+/* ==========================================================
+   TRANSMITTING STATE
+========================================================== */
+
+.dashboard-core.core-forward {
+    border-color: rgba(200, 255, 0, 0.58);
+
+    box-shadow:
+        0 42px 95px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        0 0 48px rgba(200, 255, 0, 0.36),
+        0 0 105px rgba(200, 255, 0, 0.2);
+}
+
+
+/* ==========================================================
+   PROCESSING STATE
+========================================================== */
+
+.dashboard-core.core-processing {
+    border-color: rgba(220, 255, 90, 0.7);
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(200, 255, 0, 0.16),
+            transparent 50%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.12),
+            rgba(200, 255, 0, 0.045)
+        );
+
+    box-shadow:
+        0 45px 100px rgba(0, 0, 0, 0.72),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        0 0 58px rgba(200, 255, 0, 0.42),
+        0 0 125px rgba(200, 255, 0, 0.24);
+}
+
+
+/* ==========================================================
+   RETURN STATE
+========================================================== */
+
+.dashboard-core.core-return {
+    border-color: rgba(225, 255, 120, 0.72);
+
+    box-shadow:
+        0 45px 100px rgba(0, 0, 0, 0.72),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        0 0 62px rgba(200, 255, 0, 0.46),
+        0 0 135px rgba(200, 255, 0, 0.26);
+}
+
+
+/* ==========================================================
+   BURST STATE
+========================================================== */
+
+.dashboard-core.core-burst {
+    border-color: rgba(245, 255, 205, 0.95);
+
+    box-shadow:
+        0 46px 105px rgba(0, 0, 0, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32),
+        0 0 35px rgba(255, 255, 255, 0.42),
+        0 0 75px rgba(200, 255, 0, 0.78),
+        0 0 145px rgba(200, 255, 0, 0.42);
+
+    animation: coreBurstFlash 0.85s ease-out;
+}
+
+@keyframes coreBurstFlash {
+    0% {
+        filter: brightness(1);
+    }
+
+    30% {
+        filter: brightness(1.55);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+
+/* ==========================================================
+   AMBIENT GLOW
+========================================================== */
+
+.core-glow {
+    position: absolute;
+    inset: -38%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(200, 255, 0, 0.24) 0%,
+            rgba(200, 255, 0, 0.11) 34%,
+            transparent 72%
+        );
+
+    filter: blur(38px);
+
+    opacity: 0.5;
+
+    animation: coreGlow 5s ease-in-out infinite;
+
+    pointer-events: none;
+    z-index: 0;
+
+    transition:
+        opacity 0.35s ease,
+        filter 0.35s ease;
+}
+
+.core-active .core-glow {
+    opacity: 0.85;
+    animation-duration: 3.2s;
+}
+
+.core-processing .core-glow {
+    opacity: 1;
+    filter: blur(30px);
+    animation-duration: 1.4s;
+}
+
+.core-return .core-glow {
+    opacity: 1;
+    animation-duration: 1s;
+}
+
+.core-glow-burst {
+    animation: coreGlowBurst 0.85s ease-out forwards;
+}
+
+@keyframes coreGlow {
+    0%,
+    100% {
+        opacity: 0.38;
+        transform: scale(0.94);
+    }
+
+    50% {
+        opacity: 0.92;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes coreGlowBurst {
+    0% {
+        opacity: 0.55;
+        transform: scale(0.9);
+    }
+
+    35% {
+        opacity: 1;
+        transform: scale(1.35);
+    }
+
+    100% {
+        opacity: 0.48;
+        transform: scale(1.05);
+    }
+}
+/* ==========================================================
+   HOLOGRAPHIC REACTOR SYSTEM
+========================================================== */
+
+.core-hologram {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 150px;
+    height: 150px;
+
+    transform:
+        translate(-50%, -50%)
+        perspective(500px)
+        rotateX(62deg);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    opacity: 0.32;
+
+    transition:
+        opacity 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+/* ==========================================================
+   SHARED HOLOGRAPHIC RING
+========================================================== */
+
+.hologram-ring {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(200, 255, 0, 0.3);
+
+    box-shadow:
+        inset 0 0 16px rgba(200, 255, 0, 0.08),
+        0 0 14px rgba(200, 255, 0, 0.16);
+
+    transform-origin: center;
+
+    will-change: transform;
+}
+
+
+/* ==========================================================
+   OUTER RING
+========================================================== */
+
+.hologram-ring-outer {
+    width: 128px;
+    height: 128px;
+
+    margin:
+        -44px
+        0
+        0
+        -64px;
+
+    border-style: dashed;
+
+    animation:
+        hologramRotateClockwise
+        12s
+        linear
+        infinite;
+}
+
+
+/* ==========================================================
+   INNER RING
+========================================================== */
+
+.hologram-ring-inner {
+    width: 92px;
+    height: 92px;
+
+    margin:
+        -30px
+        0
+        0
+        -46px;
+
+    border-color:
+        rgba(255, 255, 255, 0.24);
+
+    border-style: dotted;
+
+    box-shadow:
+        inset 0 0 18px rgba(200, 255, 0, 0.1),
+        0 0 18px rgba(200, 255, 0, 0.17);
+
+    animation:
+        hologramRotateCounterClockwise
+        8s
+        linear
+        infinite;
+}
+
+
+/* ==========================================================
+   CENTRAL REACTOR DISC
+========================================================== */
+
+.hologram-reactor-disc {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -30%);
+
+    border:
+        1px solid
+        rgba(200, 255, 0, 0.26);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(200, 255, 0, 0.1) 25%,
+            rgba(200, 255, 0, 0.025) 55%,
+            transparent 76%
+        );
+
+    box-shadow:
+        inset 0 0 22px rgba(200, 255, 0, 0.12),
+        0 0 22px rgba(200, 255, 0, 0.12);
+
+    animation:
+        reactorDiscPulse
+        2.8s
+        ease-in-out
+        infinite;
+}
+
+
+/* ==========================================================
+   RING ENERGY NODES
+========================================================== */
+
+.ring-node {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #c8ff00;
+
+    box-shadow:
+        0 0 7px #c8ff00,
+        0 0 16px rgba(200, 255, 0, 0.8);
+
+    animation:
+        ringNodePulse
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* Outer ring nodes */
+
+.ring-node-one {
+    top: -3px;
+    left: 50%;
+}
+
+.ring-node-two {
+    right: 8px;
+    bottom: 25px;
+
+    animation-delay: 0.35s;
+}
+
+.ring-node-three {
+    left: 8px;
+    bottom: 25px;
+
+    animation-delay: 0.7s;
+}
+
+
+/* Inner ring nodes */
+
+.ring-node-four {
+    top: 14px;
+    right: 4px;
+
+    animation-delay: 0.2s;
+}
+
+.ring-node-five {
+    bottom: 14px;
+    left: 4px;
+
+    animation-delay: 0.55s;
+}
+
+
+/* ==========================================================
+   FORWARD STATE
+========================================================== */
+
+.hologram-forward {
+    opacity: 0.72;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(200, 255, 0, 0.25)
+        );
+}
+
+.hologram-forward .hologram-ring-outer {
+    animation-duration: 7s;
+}
+
+.hologram-forward .hologram-ring-inner {
+    animation-duration: 4.8s;
+}
+
+
+/* ==========================================================
+   PROCESSING STATE
+========================================================== */
+
+.hologram-processing {
+    opacity: 0.95;
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(200, 255, 0, 0.48)
+        );
+}
+
+.hologram-processing .hologram-ring-outer {
+    border-color:
+        rgba(200, 255, 0, 0.72);
+
+    animation-duration: 2.8s;
+}
+
+.hologram-processing .hologram-ring-inner {
+    border-color:
+        rgba(255, 255, 255, 0.62);
+
+    animation-duration: 1.9s;
+}
+
+.hologram-processing .hologram-reactor-disc {
+    animation-duration: 0.9s;
+}
+
+
+/* ==========================================================
+   RETURN STATE
+========================================================== */
+
+.hologram-return {
+    opacity: 1;
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(200, 255, 0, 0.58)
+        );
+}
+
+.hologram-return .hologram-ring-outer {
+    animation-direction: reverse;
+    animation-duration: 1.8s;
+}
+
+.hologram-return .hologram-ring-inner {
+    animation-direction: normal;
+    animation-duration: 1.25s;
+}
+
+
+/* ==========================================================
+   BURST STATE
+========================================================== */
+
+.hologram-burst {
+    opacity: 1;
+
+    animation:
+        hologramBurst
+        0.85s
+        ease-out;
+}
+
+.hologram-burst .hologram-ring {
+    border-color:
+        rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        inset 0 0 28px rgba(255, 255, 255, 0.16),
+        0 0 26px rgba(255, 255, 255, 0.55),
+        0 0 55px rgba(200, 255, 0, 0.75);
+}
+
+.hologram-burst .ring-node {
+    background: #ffffff;
+
+    box-shadow:
+        0 0 10px #ffffff,
+        0 0 24px rgba(200, 255, 0, 1);
+}
+
+
+/* ==========================================================
+   ROTATION ANIMATIONS
+========================================================== */
+
+@keyframes hologramRotateClockwise {
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+@keyframes hologramRotateCounterClockwise {
+    from {
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            rotate(0deg);
+    }
+}
+
+
+/* ==========================================================
+   REACTOR DISC PULSE
+========================================================== */
+
+@keyframes reactorDiscPulse {
+    0%,
+    100% {
+        opacity: 0.35;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.92);
+    }
+
+    50% {
+        opacity: 0.88;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.12);
+    }
+}
+
+
+/* ==========================================================
+   ENERGY NODE PULSE
+========================================================== */
+
+@keyframes ringNodePulse {
+    0%,
+    100% {
+        opacity: 0.45;
+
+        transform:
+            scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.45);
+    }
+}
+
+
+/* ==========================================================
+   HOLOGRAM BURST
+========================================================== */
+
+@keyframes hologramBurst {
+    0% {
+        transform:
+            translate(-50%, -50%)
+            perspective(500px)
+            rotateX(62deg)
+            scale(0.9);
+
+        filter:
+            brightness(1);
+    }
+
+    38% {
+        transform:
+            translate(-50%, -50%)
+            perspective(500px)
+            rotateX(62deg)
+            scale(1.3);
+
+        filter:
+            brightness(2.2);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            perspective(500px)
+            rotateX(62deg)
+            scale(1);
+
+        filter:
+            brightness(1);
+    }
+}
+
+/* ==========================================================
+   GLASS REFLECTION
+========================================================== */
+
+.core-reflection {
+    position: absolute;
+
+    top: -45%;
+    left: -55%;
+
+    width: 80%;
+    height: 220%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.22),
+            transparent
+        );
+
+    transform: rotate(24deg);
+
+    opacity: 0.16;
+
+    animation: reflectionMove 7s linear infinite;
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+.reflection-processing {
+    opacity: 0.3;
+    animation-duration: 2.2s;
+}
+
+@keyframes reflectionMove {
+    from {
+        left: -70%;
+    }
+
+    to {
+        left: 150%;
+    }
+}
+
+
+/* ==========================================================
+   SCANNER
+========================================================== */
+
+.scan-line {
+    position: absolute;
+
+    top: 14%;
+    left: 10%;
+
+    width: 80%;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(200, 255, 0, 0.55),
+            #c8ff00,
+            rgba(200, 255, 0, 0.55),
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px #c8ff00,
+        0 0 24px rgba(200, 255, 0, 0.72),
+        0 0 42px rgba(200, 255, 0, 0.24);
+
+    opacity: 0.42;
+
+    animation: scanMove 4.5s linear infinite;
+
+    pointer-events: none;
+    z-index: 3;
+}
+
+.scan-line::after {
+    content: "";
+
+    position: absolute;
+
+    top: -10px;
+    left: 0;
+
+    width: 100%;
+    height: 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(200, 255, 0, 0.08),
+            transparent
+        );
+
+    filter: blur(4px);
+}
+
+.scan-active {
+    opacity: 0.8;
+    animation-duration: 2.4s;
+}
+
+.scan-processing {
+    height: 3px;
+    opacity: 1;
+    animation-duration: 1.05s;
+
+    box-shadow:
+        0 0 14px #c8ff00,
+        0 0 32px rgba(200, 255, 0, 0.92),
+        0 0 58px rgba(200, 255, 0, 0.38);
+}
+
+@keyframes scanMove {
+    0% {
+        top: 12%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.85;
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================================
+   REACTOR PULSE
+========================================================== */
+
+.core-pulse {
+    position: absolute;
+
+    width: 115px;
+    height: 115px;
+
+    border-radius: 50%;
+
+    border: 1.5px solid rgba(200, 255, 0, 0.34);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(200, 255, 0, 0.07),
+            transparent 68%
+        );
+
+    box-shadow:
+        inset 0 0 20px rgba(200, 255, 0, 0.05),
+        0 0 14px rgba(200, 255, 0, 0.24);
+
+    animation: pulseRing 3.2s ease-in-out infinite;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+.pulse-active {
+    animation-duration: 1.6s;
+}
+
+.pulse-receiving {
+    border-color: rgba(225, 255, 120, 0.82);
+
+    box-shadow:
+        inset 0 0 24px rgba(200, 255, 0, 0.14),
+        0 0 20px rgba(200, 255, 0, 0.55);
+
+    animation: receivingPulse 0.8s ease-in-out infinite;
+}
+
+.pulse-burst {
+    border-color: rgba(255, 255, 255, 0.95);
+
+    animation: pulseBurst 0.85s ease-out forwards;
+
+    box-shadow:
+        inset 0 0 30px rgba(255, 255, 255, 0.18),
+        0 0 28px rgba(255, 255, 255, 0.6),
+        0 0 55px rgba(200, 255, 0, 0.8);
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.82);
+        opacity: 0.16;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.88;
+    }
+
+    100% {
+        transform: scale(1.38);
+        opacity: 0;
+    }
+}
+
+@keyframes receivingPulse {
+    0%,
+    100% {
+        transform: scale(1.2);
+        opacity: 0.28;
+    }
+
+    50% {
+        transform: scale(0.82);
+        opacity: 1;
+    }
+}
+
+@keyframes pulseBurst {
+    0% {
+        transform: scale(0.72);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.9);
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================================
+   ENERGY BURST RINGS
+========================================================== */
+
+.core-burst-ring {
+    position: absolute;
+
+    width: 128px;
+    height: 128px;
+
+    border-radius: 50%;
+
+    border: 1.5px solid rgba(225, 255, 120, 0.9);
+
+    box-shadow:
+        0 0 18px rgba(200, 255, 0, 0.75),
+        inset 0 0 16px rgba(200, 255, 0, 0.18);
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+.core-burst-ring-one {
+    animation: burstRing 0.85s ease-out forwards;
+}
+
+.core-burst-ring-two {
+    animation: burstRing 0.85s 0.14s ease-out forwards;
+}
+
+@keyframes burstRing {
+    0% {
+        transform: scale(0.55);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2.15);
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.core-logo {
+    width: 58px;
+    height: auto;
+
+    margin-bottom: 12px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 12px rgba(200, 255, 0, 0.35))
+        drop-shadow(0 0 28px rgba(200, 255, 0, 0.18));
+
+    transform-origin: center;
+}
+
+.core-logo-burst {
+    animation: logoBurstShimmer 0.85s ease-out;
+}
+
+@keyframes logoBurstShimmer {
+    0% {
+        opacity: 1;
+    }
+
+    35% {
+        opacity: 0.95;
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* ==========================================================
+   COMPANY NAME
+========================================================== */
+
+.core-company {
+    color: #c8ff00;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    line-height: 1.35;
+
+    margin-bottom: 8px;
+
+    text-shadow:
+        0 0 12px rgba(200, 255, 0, 0.25);
+}
+
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.dashboard-core h2 {
+    margin: 0 0 10px;
+
+    color: #ffffff;
+
+    font-size: 1.48rem;
+    font-weight: 700;
+
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+
+    text-shadow:
+        0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.dashboard-core p {
+    max-width: 170px;
+
+    margin: 0 0 16px;
+
+    color: #bfbfbf;
+
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   STATUS PANEL
+========================================================== */
+
+.core-status {
+    min-height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 9px 15px;
+
+    border: 1px solid rgba(200, 255, 0, 0.12);
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(200, 255, 0, 0.1),
+            rgba(200, 255, 0, 0.045)
+        );
+
+    color: #c8ff00;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.035em;
+    white-space: nowrap;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.core-status-active {
+    border-color: rgba(200, 255, 0, 0.32);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(200, 255, 0, 0.16),
+            rgba(200, 255, 0, 0.065)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        0 0 18px rgba(200, 255, 0, 0.12);
+}
+
+.core-status-burst {
+    border-color: rgba(245, 255, 205, 0.78);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(235, 255, 175, 0.25),
+            rgba(200, 255, 0, 0.1)
+        );
+
+    color: #f3ffd0;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 24px rgba(200, 255, 0, 0.32);
+
+    animation: statusBurst 0.85s ease-out;
+}
+
+@keyframes statusBurst {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================================
+   STATUS DOT
+========================================================== */
+
+.status-dot {
+    flex: 0 0 auto;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #c8ff00;
+
+    box-shadow:
+        0 0 10px #c8ff00,
+        0 0 18px rgba(200, 255, 0, 0.45);
+
+    animation: statusPulse 1.6s ease-in-out infinite;
+}
+
+.status-dot-active {
+    animation-duration: 0.9s;
+}
+
+.status-dot-burst {
+    background: #f5ffd8;
+
+    box-shadow:
+        0 0 12px #ffffff,
+        0 0 24px rgba(200, 255, 0, 0.95);
+
+    animation: statusDotBurst 0.85s ease-out;
+}
+
+@keyframes statusPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.65);
+        opacity: 0.45;
+    }
+}
+
+@keyframes statusDotBurst {
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(2.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 1100px) {
+    .dashboard-core {
+        width: 188px;
+        min-height: 264px;
+
+        padding: 18px;
+
+        border-radius: 29px;
+    }
+
+    .core-logo {
+        width: 54px;
+    }
+
+    .dashboard-core h2 {
+        font-size: 1.38rem;
+    }
+
+    .core-pulse {
+        width: 105px;
+        height: 105px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-core {
+        width: 174px;
+        min-height: 238px;
+
+        padding: 16px;
+
+        border-radius: 26px;
+    }
+
+    .core-logo {
+        width: 48px;
+        margin-bottom: 9px;
+    }
+
+    .core-company {
+        font-size: 0.64rem;
+        letter-spacing: 2.2px;
+    }
+
+    .dashboard-core h2 {
+        font-size: 1.22rem;
+        margin-bottom: 8px;
+    }
+
+    .dashboard-core p {
+        max-width: 150px;
+
+        margin-bottom: 12px;
+
+        font-size: 0.75rem;
+    }
+
+    .core-status {
+        min-height: 33px;
+
+        padding: 8px 12px;
+
+        font-size: 0.64rem;
+    }
+
+    .core-pulse {
+        width: 92px;
+        height: 92px;
+    }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .dashboard-core,
+    .core-glow,
+    .core-reflection,
+    .scan-line,
+    .core-pulse,
+    .core-burst-ring,
+    .core-logo,
+    .core-status,
+    .status-dot,
+    .core-hologram,
+    .hologram-ring,
+    .hologram-reactor-disc,
+    .ring-node {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .scan-line {
+        top: 50%;
+        opacity: 0.35;
+    }
+
+    .core-glow {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================================
+   MOBILE PERFORMANCE MODE
+   Fine Tech Creatives
+
+   These overrides preserve the visual identity of the
+   Digital Core while reducing continuous GPU-heavy work
+   on screens 768px and below.
+========================================================== */
+
+@media (max-width: 768px) {
+
+    /* ------------------------------------------------------
+       CORE GLASS PANEL
+       Reduce backdrop blur and simplify the shadow stack.
+    ------------------------------------------------------ */
+
+    .dashboard-core {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+        box-shadow:
+            0 24px 52px rgba(0, 0, 0, 0.48),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06),
+            0 0 24px rgba(200, 255, 0, 0.055);
+
+        transition:
+            border-color 0.3s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+
+    /* ------------------------------------------------------
+       ACTIVE CORE STATES
+       Keep state changes visible with fewer glow layers.
+    ------------------------------------------------------ */
+
+    .dashboard-core.core-active,
+    .dashboard-core.core-online {
+        box-shadow:
+            0 26px 58px rgba(0, 0, 0, 0.52),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 0 26px rgba(200, 255, 0, 0.14);
+    }
+
+
+    .dashboard-core.core-forward {
+        box-shadow:
+            0 28px 60px rgba(0, 0, 0, 0.54),
+            inset 0 1px 0 rgba(255, 255, 255, 0.09),
+            0 0 30px rgba(200, 255, 0, 0.2);
+    }
+
+
+    .dashboard-core.core-processing,
+    .dashboard-core.core-return {
+        box-shadow:
+            0 30px 64px rgba(0, 0, 0, 0.56),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 0 34px rgba(200, 255, 0, 0.24);
+    }
+
+
+    .dashboard-core.core-burst {
+        box-shadow:
+            0 30px 66px rgba(0, 0, 0, 0.58),
+            inset 0 1px 0 rgba(255, 255, 255, 0.16),
+            0 0 16px rgba(255, 255, 255, 0.2),
+            0 0 34px rgba(200, 255, 0, 0.42);
+
+        animation-duration: 0.72s;
+    }
+
+
+    /* ------------------------------------------------------
+       AMBIENT CORE GLOW
+       Keep the breathing effect but reduce blur radius and
+       slow the permanent animation.
+    ------------------------------------------------------ */
+
+    .core-glow {
+        inset: -28%;
+
+        filter: blur(20px);
+
+        opacity: 0.4;
+
+        animation-duration: 8s;
+
+        transition:
+            opacity 0.28s ease,
+            filter 0.28s ease;
+    }
+
+
+    .core-active .core-glow {
+        opacity: 0.65;
+        animation-duration: 6s;
+    }
+
+
+    .core-processing .core-glow {
+        opacity: 0.78;
+
+        filter: blur(18px);
+
+        animation-duration: 3.8s;
+    }
+
+
+    .core-return .core-glow {
+        opacity: 0.82;
+
+        animation-duration: 3.2s;
+    }
+
+
+    /* ------------------------------------------------------
+       HOLOGRAPHIC REACTOR
+       Keep both rings, but rotate them considerably slower.
+    ------------------------------------------------------ */
+
+    .core-hologram {
+        opacity: 0.28;
+
+        filter: none;
+
+        transition: opacity 0.25s ease;
+    }
+
+
+    .hologram-ring {
+        box-shadow:
+            inset 0 0 8px rgba(200, 255, 0, 0.05),
+            0 0 7px rgba(200, 255, 0, 0.09);
+
+        will-change: auto;
+    }
+
+
+    .hologram-ring-outer {
+        animation-duration: 24s;
+    }
+
+
+    .hologram-ring-inner {
+        animation-duration: 18s;
+
+        box-shadow:
+            inset 0 0 9px rgba(200, 255, 0, 0.055),
+            0 0 8px rgba(200, 255, 0, 0.09);
+    }
+
+
+    .hologram-forward {
+        opacity: 0.48;
+
+        filter: none;
+    }
+
+
+    .hologram-forward .hologram-ring-outer {
+        animation-duration: 18s;
+    }
+
+
+    .hologram-forward .hologram-ring-inner {
+        animation-duration: 14s;
+    }
+
+
+    .hologram-processing {
+        opacity: 0.68;
+
+        filter: none;
+    }
+
+
+    .hologram-processing .hologram-ring-outer {
+        animation-duration: 9s;
+    }
+
+
+    .hologram-processing .hologram-ring-inner {
+        animation-duration: 7s;
+    }
+
+
+    .hologram-processing .hologram-reactor-disc {
+        animation-duration: 2.2s;
+    }
+
+
+    .hologram-return {
+        opacity: 0.72;
+
+        filter: none;
+    }
+
+
+    .hologram-return .hologram-ring-outer {
+        animation-duration: 6s;
+    }
+
+
+    .hologram-return .hologram-ring-inner {
+        animation-duration: 5s;
+    }
+
+
+    .hologram-burst .hologram-ring {
+        box-shadow:
+            inset 0 0 12px rgba(255, 255, 255, 0.1),
+            0 0 14px rgba(255, 255, 255, 0.28),
+            0 0 26px rgba(200, 255, 0, 0.38);
+    }
+
+
+    /* ------------------------------------------------------
+       CENTRAL REACTOR DISC
+       Preserve pulse with less frequent repainting.
+    ------------------------------------------------------ */
+
+    .hologram-reactor-disc {
+        box-shadow:
+            inset 0 0 12px rgba(200, 255, 0, 0.08),
+            0 0 10px rgba(200, 255, 0, 0.08);
+
+        animation-duration: 5s;
+    }
+
+
+    /* ------------------------------------------------------
+       ENERGY NODES
+       Slow pulses and reduce glow layers.
+    ------------------------------------------------------ */
+
+    .ring-node {
+        width: 5px;
+        height: 5px;
+
+        box-shadow:
+            0 0 6px rgba(200, 255, 0, 0.72);
+
+        animation-duration: 3.4s;
+    }
+
+
+    .hologram-burst .ring-node {
+        box-shadow:
+            0 0 8px rgba(255, 255, 255, 0.75),
+            0 0 13px rgba(200, 255, 0, 0.58);
+    }
+
+
+    /* ------------------------------------------------------
+       GLASS REFLECTION
+       Reflection remains, but moves much slower and with
+       lower opacity.
+    ------------------------------------------------------ */
+
+    .core-reflection {
+        opacity: 0.09;
+
+        animation-duration: 15s;
+    }
+
+
+    .reflection-processing {
+        opacity: 0.14;
+
+        animation-duration: 8s;
+    }
+
+
+    /* ------------------------------------------------------
+       SCANNER
+       Reduce shadow layers and slow the default scan.
+    ------------------------------------------------------ */
+
+    .scan-line {
+        opacity: 0.3;
+
+        animation-duration: 8s;
+
+        box-shadow:
+            0 0 7px rgba(200, 255, 0, 0.6),
+            0 0 14px rgba(200, 255, 0, 0.28);
+    }
+
+
+    .scan-line::after {
+        filter: none;
+
+        background:
+            linear-gradient(
+                180deg,
+                transparent,
+                rgba(200, 255, 0, 0.045),
+                transparent
+            );
+    }
+
+
+    .scan-active {
+        opacity: 0.54;
+
+        animation-duration: 5s;
+    }
+
+
+    .scan-processing {
+        height: 2px;
+
+        opacity: 0.72;
+
+        animation-duration: 2.6s;
+
+        box-shadow:
+            0 0 8px rgba(200, 255, 0, 0.68),
+            0 0 18px rgba(200, 255, 0, 0.34);
+    }
+
+
+    /* ------------------------------------------------------
+       REACTOR PULSE
+       Slow the idle pulse while retaining active/burst states.
+    ------------------------------------------------------ */
+
+    .core-pulse {
+        box-shadow:
+            inset 0 0 10px rgba(200, 255, 0, 0.035),
+            0 0 8px rgba(200, 255, 0, 0.16);
+
+        animation-duration: 5.8s;
+    }
+
+
+    .pulse-active {
+        animation-duration: 3.4s;
+    }
+
+
+    .pulse-receiving {
+        box-shadow:
+            inset 0 0 12px rgba(200, 255, 0, 0.08),
+            0 0 11px rgba(200, 255, 0, 0.3);
+
+        animation-duration: 1.8s;
+    }
+
+
+    .pulse-burst {
+        box-shadow:
+            inset 0 0 16px rgba(255, 255, 255, 0.1),
+            0 0 15px rgba(255, 255, 255, 0.28),
+            0 0 27px rgba(200, 255, 0, 0.42);
+    }
+
+
+    /* ------------------------------------------------------
+       BURST RINGS
+       Keep the impact effect with lighter glow.
+    ------------------------------------------------------ */
+
+    .core-burst-ring {
+        box-shadow:
+            0 0 10px rgba(200, 255, 0, 0.42),
+            inset 0 0 8px rgba(200, 255, 0, 0.1);
+    }
+
+
+    /* ------------------------------------------------------
+       LOGO
+       One subtle shadow instead of two.
+    ------------------------------------------------------ */
+
+    .core-logo {
+        filter:
+            drop-shadow(
+                0 0 8px
+                rgba(200, 255, 0, 0.24)
+            );
+    }
+
+
+    /* ------------------------------------------------------
+       STATUS PANEL
+    ------------------------------------------------------ */
+
+    .core-status-active {
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.07),
+            0 0 9px rgba(200, 255, 0, 0.07);
+    }
+
+
+    .core-status-burst {
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.12),
+            0 0 12px rgba(200, 255, 0, 0.18);
+    }
+
+
+    .status-dot {
+        box-shadow:
+            0 0 7px rgba(200, 255, 0, 0.72);
+
+        animation-duration: 2.8s;
+    }
+
+
+    .status-dot-active {
+        animation-duration: 1.8s;
+    }
+
+
+    .status-dot-burst {
+        box-shadow:
+            0 0 8px rgba(255, 255, 255, 0.75),
+            0 0 13px rgba(200, 255, 0, 0.52);
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE PERFORMANCE MODE
+========================================================== */
+
+@media (max-width: 480px) {
+
+    .dashboard-core {
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+    }
+
+
+    .core-glow {
+        filter: blur(15px);
+
+        opacity: 0.32;
+    }
+
+
+    .core-reflection {
+        opacity: 0.06;
+
+        animation-duration: 18s;
+    }
+
+
+    .hologram-ring {
+        box-shadow: none;
+    }
+
+
+    .ring-node {
+        box-shadow:
+            0 0 4px
+            rgba(200, 255, 0, 0.56);
+    }
+
+
+    .scan-line {
+        box-shadow:
+            0 0 5px
+            rgba(200, 255, 0, 0.48);
+    }
+
+
+    .core-logo {
+        filter:
+            drop-shadow(
+                0 0 5px
+                rgba(200, 255, 0, 0.2)
+            );
+    }
+
 }
