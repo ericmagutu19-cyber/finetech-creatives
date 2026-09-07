@@ -166,11 +166,26 @@ export default function Services() {
 
               return (
                 <motion.article
-                  key={title}
-                  className={`
-                    service-card
-                    ${personalityClass}
-                  `}
+  key={title}
+  id={
+    title === "Website Solutions"
+      ? "website-solutions"
+      : title === "Search Visibility"
+      ? "search-visibility"
+      : title === "Google Business Profile"
+      ? "google-business-profile"
+      : title === "Brand Identity"
+      ? "brand-identity"
+      : title === "Social Media Marketing"
+      ? "social-media-marketing"
+      : title === "Business Growth Packages"
+      ? "business-growth-packages"
+      : undefined
+  }
+  className={`
+    service-card
+    ${personalityClass}
+  `}
                   variants={cardVariants}
                   whileHover={{
                     y: -10,

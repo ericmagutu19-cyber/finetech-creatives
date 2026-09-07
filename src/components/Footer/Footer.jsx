@@ -47,27 +47,27 @@ const quickLinks = [
 const serviceLinks = [
   {
     label: "Website Solutions",
-    href: "#services",
+    href: "#website-solutions",
   },
   {
     label: "SEO & Google Visibility",
-    href: "#services",
+    href: "#search-visibility",
   },
   {
     label: "Brand Identity",
-    href: "#services",
+    href: "#brand-identity",
   },
   {
     label: "Social Media Marketing",
-    href: "#services",
+    href: "#social-media-marketing",
   },
   {
     label: "E-Commerce Websites",
-    href: "#services",
+    href: "#website-solutions",
   },
   {
     label: "Growth Packages",
-    href: "#packages",
+    href: "#business-growth-packages",
   },
 ];
 
@@ -362,6 +362,7 @@ I would like to learn more about your digital services.`
                 href={companyData.website}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit Fine Tech Creatives website"
                 className="footer-contact-item"
               >
                 <span className="footer-contact-icon">
