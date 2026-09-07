@@ -131,16 +131,16 @@ export default function Services() {
           </span>
 
           <h2>
-            Everything Your Business Needs
-            <span> To Grow Online</span>
-          </h2>
+  Digital Solutions That Help Your Business
+  <span> Grow Online</span>
+</h2>
 
           <p>
-            From high-performing websites and search visibility to
-            branding, social media and complete growth systems, we build
-            digital solutions designed to help your business get found,
-            get chosen and grow.
-          </p>
+  From high-performing websites and SEO to Google Business Profile
+  optimization, branding, social media marketing and complete
+  growth systems, we build digital solutions that help businesses
+  in Kenya get found, get chosen and grow.
+</p>
         </motion.div>
 
 

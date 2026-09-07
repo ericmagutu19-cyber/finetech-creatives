@@ -570,6 +570,48 @@ html {
 
   font-weight: bold;
 }
+/* ==========================================================
+   CASE STUDY — LIVE WEBSITE BUTTON
+========================================================== */
+
+.case-study-website {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 10px;
+  padding: 12px 20px;
+
+  background: #C8FF00;
+  color: #0a0a0a;
+
+  border: 1px solid #C8FF00;
+  border-radius: 10px;
+
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.case-study-website span {
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.case-study-website:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200, 255, 0, 0.2);
+}
+
+.case-study-website:hover span {
+  transform: translate(2px, -2px);
+}
 .cta-box {
   background: #111;
 

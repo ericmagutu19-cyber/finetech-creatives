@@ -159,18 +159,17 @@ export default function Packages() {
             GROWTH PACKAGES
           </span>
 
-          <h2>
-            Choose the Support Your
-            <span>
-              Business Needs Right Now.
-            </span>
-          </h2>
-
-          <p>
-            Our packages are structured around two different stages of
-            business growth: establishing a strong digital foundation and
-            maintaining consistent visibility, optimization and progress.
-          </p>
+<h2>
+  Digital Growth Packages for
+  <span>
+    Businesses Ready to Grow.
+  </span>
+</h2>
+<p>
+  Our digital growth packages are structured around two stages of
+  business growth: establishing a strong digital foundation and
+  maintaining consistent visibility, SEO, optimization and progress.
+</p>
         </motion.div>
 
 

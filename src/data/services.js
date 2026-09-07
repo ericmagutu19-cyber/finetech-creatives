@@ -7,8 +7,7 @@ export const serviceTemplates = {
     timeline: "14 - 21 Days",
 
     description:
-      "Professional websites designed to build credibility, generate leads and grow your business online.",
-
+  "Professional websites designed to build credibility, generate leads and help businesses in Kenya grow online.",
     highlights: [
       "Responsive Website Design",
       "Mobile Optimization",
@@ -148,9 +147,8 @@ export const serviceTemplates = {
 
     timeline: "30 Days",
 
-    description:
-      "Improve your Google rankings and help customers discover your business before your competitors.",
-
+description:
+  "SEO strategies that improve Google rankings, increase organic visibility and help customers discover your business before your competitors.",
     highlights: [
       "Technical SEO Audit",
       "Keyword Research",
@@ -461,9 +459,8 @@ export const serviceTemplates = {
 
     timeline: "7 - 21 Days",
 
-    description:
-      "Build a memorable brand that customers recognize, trust and remember.",
-
+description:
+  "Build a memorable brand identity that customers recognize, trust and remember through professional visual branding.",
     highlights: [
       "Professional Logo",
       "Colour Palette",
@@ -779,9 +776,8 @@ export const serviceTemplates = {
 
     timeline: "2 - 3 Months",
 
-    description:
-      "Complete digital transformation packages that combine websites, branding, SEO and marketing into one powerful solution.",
-
+description:
+  "Complete digital transformation packages that combine website development, branding, SEO and digital marketing into one powerful solution for growing businesses.",
     highlights: [
       "Professional Website",
       "Brand Identity",

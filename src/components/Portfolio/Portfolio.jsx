@@ -209,16 +209,17 @@ export default function Portfolio() {
             </span>
 
             <h2>
-              Digital Work Built
-              <span>
-                To Solve Real Business Needs.
-              </span>
-            </h2>
+  Websites, Branding & Digital Marketing
+  <span>
+    Built for Real Business Growth.
+  </span>
+</h2>
 
-            <p>
-              Explore selected projects across websites, e-commerce,
-              branding, SEO planning and digital-marketing solutions.
-            </p>
+<p>
+  Explore selected projects across website design, e-commerce,
+  branding, SEO and digital marketing, created to help businesses
+  build credibility, reach more customers and grow online.
+</p>
           </motion.div>
 
 
@@ -364,43 +365,53 @@ export default function Portfolio() {
 
                     {/* Project actions */}
 
-                    <div className="portfolio-actions">
+<div className="portfolio-actions">
 
-                      <motion.button
-                        type="button"
-                        className="portfolio-case-button"
-                        onClick={() =>
-                          setSelectedProject(
-                            project
-                          )
-                        }
-                        whileHover={{
-                          x: 4,
-                        }}
-                        whileTap={{
-                          scale: 0.97,
-                        }}
-                      >
-                        <span>
-                          View Case Study
-                        </span>
+  <motion.button
+    type="button"
+    className="portfolio-case-button"
+    onClick={() =>
+      setSelectedProject(project)
+    }
+    whileHover={{
+      x: 4,
+    }}
+    whileTap={{
+      scale: 0.97,
+    }}
+  >
+    <span>
+      View Case Study
+    </span>
 
-                        <FaArrowRight />
-                      </motion.button>
+    <FaArrowRight />
+  </motion.button>
 
+  {project.website && (
+    <a
+      href={project.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="portfolio-website-button"
+      aria-label={`Visit ${project.title} website`}
+    >
+      Visit Website
+      <FaArrowRight />
+    </a>
+  )}
 
-                      <button
-                        type="button"
-                        className="portfolio-gallery-button"
-                        onClick={() =>
-                          openGallery(project)
-                        }
-                        aria-label={`View ${project.title} gallery`}
-                      >
-                        <FaExpand />
-                      </button>
+  <button
+    type="button"
+    className="portfolio-gallery-button"
+    onClick={() =>
+      openGallery(project)
+    }
+    aria-label={`View ${project.title} gallery`}
+  >
+    <FaExpand />
+  </button>
 
-                    </div>
+</div>
 
                   </div>
 

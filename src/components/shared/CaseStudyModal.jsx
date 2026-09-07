@@ -16,6 +16,7 @@ export default function CaseStudyModal({
         <button
           className="case-study-close"
           onClick={onClose}
+          aria-label="Close case study"
         >
           ✕
         </button>
@@ -41,6 +42,18 @@ export default function CaseStudyModal({
           <strong>Outcome:</strong>{" "}
           {project.outcome}
         </p>
+
+        {project.website && (
+          <a
+            href={project.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="case-study-website"
+          >
+            Visit Live Website
+            <span>↗</span>
+          </a>
+        )}
       </div>
     </div>
   );
