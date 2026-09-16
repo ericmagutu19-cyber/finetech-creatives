@@ -46,9 +46,13 @@ export default function Hero() {
   className="hero-right"
   initial={{ opacity: 0, x: 60 }}
   animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8 }}
+  transition={{
+    duration: 0.8,
+    delay: 0.25,
+    ease: "easeOut",
+  }}
 >
-    <FloatingDashboard />
+  <FloatingDashboard />
 </motion.div>
 
       </div>

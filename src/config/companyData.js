@@ -15,7 +15,7 @@ export const companyData = {
     "finetechcreatives@gmail.com",
 
   website:
-    "https://finetech-creatives.vercel.app",
+    "https://finetechcreatives.com",
 
   currency:
     "KES",

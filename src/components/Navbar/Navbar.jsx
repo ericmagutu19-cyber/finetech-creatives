@@ -1,24 +1,36 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../../assets/finetech-logo.png";
+import logo from "../../assets/Fine-Tech-Creatives-Logo.webp";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <nav className="navbar">
       <div className="container navbar-content">
 
-        <img
-          src={logo}
-          alt="Fine Tech Creatives"
-          className="navbar-logo"
-          width="64"
-          height="64"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-        />
+        {/* Brand Logo */}
+        <a
+          href="#home"
+          className="navbar-brand"
+          aria-label="Fine Tech Creatives - Home"
+          onClick={closeMenu}
+        >
+          <img
+            src={logo}
+            alt="Fine Tech Creatives"
+            className="navbar-logo"
+            width="64"
+            height="112"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </a>
 
         {/* Desktop Menu */}
         <div className="navbar-links">
@@ -44,36 +56,45 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <div
+        <button
+          type="button"
           className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label={
+            menuOpen
+              ? "Close navigation menu"
+              : "Open navigation menu"
+          }
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
-        </div>
+        </button>
       </div>
 
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="mobile-menu">
-          <a href="#services" onClick={() => setMenuOpen(false)}>
+        <div id="mobile-navigation" className="mobile-menu">
+          <a href="#services" onClick={closeMenu}>
             Services
           </a>
 
-          <a href="#portfolio" onClick={() => setMenuOpen(false)}>
+          <a href="#portfolio" onClick={closeMenu}>
             Portfolio
           </a>
 
-          <a href="#packages" onClick={() => setMenuOpen(false)}>
+          <a href="#packages" onClick={closeMenu}>
             Packages
           </a>
 
-          <a href="#audit" onClick={() => setMenuOpen(false)}>
+          <a href="#audit" onClick={closeMenu}>
             Contact
           </a>
 
           <a
             href="#audit"
             className="btn-primary"
-            onClick={() => setMenuOpen(false)}
+            onClick={closeMenu}
           >
             Free Audit
           </a>

@@ -76,10 +76,10 @@ I would like to discuss how you can help grow my business.`
             </h2>
 
             <p>
-              Let’s discuss your goals and build a practical digital
-              strategy that helps your business get found, get chosen
-              and grow.
-            </p>
+  Let’s discuss your goals and build a practical digital strategy
+  using website design, SEO, branding and digital marketing to
+  help your business get found, get chosen and grow.
+</p>
 
 
             {/* Trust points */}
@@ -148,6 +148,7 @@ I would like to discuss how you can help grow my business.`
                 target="_blank"
                 rel="noopener noreferrer"
                 className="final-cta-secondary"
+                aria-label="Chat with Fine Tech Creatives on WhatsApp"
                 whileHover={{
                   y: -3,
                 }}

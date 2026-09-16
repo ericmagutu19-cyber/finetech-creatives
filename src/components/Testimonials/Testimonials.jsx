@@ -152,9 +152,10 @@ export default function Testimonials() {
           </h2>
 
           <p>
-            Our goal is to create digital solutions that are useful,
-            professional and aligned with the real needs of each client.
-          </p>
+  We create professional websites, e-commerce platforms, SEO
+  strategies and digital marketing solutions designed around
+  the real needs of each business.
+</p>
         </motion.div>
 
 

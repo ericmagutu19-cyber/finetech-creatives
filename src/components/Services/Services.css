@@ -235,7 +235,9 @@
         background 0.35s ease,
         box-shadow 0.35s ease;
 }
-
+.service-card {
+  scroll-margin-top: 100px;
+}
 .service-card:hover {
     border-color:
         rgba(200, 255, 0, 0.22);

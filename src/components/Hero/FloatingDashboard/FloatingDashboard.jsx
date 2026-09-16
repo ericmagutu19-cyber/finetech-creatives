@@ -360,6 +360,12 @@ const [isSystemActive, setIsSystemActive] = useState(false);
 
 const [autoRotate, setAutoRotate] = useState(true);
 
+/* ======================================================
+   MOBILE PERFORMANCE MODE
+====================================================== */
+
+const [isMobile, setIsMobile] = useState(false);
+
     /* ======================================================
        STATUS STAGE
     ======================================================
@@ -480,7 +486,10 @@ useEffect(() => {
   );
 
   const updateRotationMode = () => {
-    setAutoRotate(!mobileQuery.matches);
+    const mobile = mobileQuery.matches;
+
+    setIsMobile(mobile);
+    setAutoRotate(!mobile);
   };
 
   updateRotationMode();
@@ -501,10 +510,11 @@ useEffect(() => {
 useEffect(() => {
 
     /* ----------------------------------------------
-       Stop automatic rotation when disabled
+       Mobile devices do not need automatic rotation.
+       Avoid interval-driven React updates on mobile.
     ---------------------------------------------- */
 
-    if (!autoRotate) {
+    if (isMobile || !autoRotate) {
 
         return;
 
@@ -558,7 +568,7 @@ useEffect(() => {
 
     };
 
-}, [autoRotate]);
+}, [autoRotate, isMobile]);
 
 /* ==========================================================
    ACTIVE MODULE PACKET CYCLE
@@ -573,6 +583,18 @@ useEffect(() => {
 ========================================================== */
 
 useEffect(() => {
+
+    /* ----------------------------------------------
+       Mobile performance mode
+
+       Keep the dashboard visible, but stop the
+       multi-step JavaScript packet choreography.
+    ---------------------------------------------- */
+
+    if (isMobile) {
+        return;
+    }
+
     if (
         activeModule === null ||
         activeModule === undefined
@@ -695,7 +717,7 @@ const idleTimer = setTimeout(() => {
     clearTimeout(idleTimer);
 
 };
-}, [activeModule]);
+}, [activeModule, isMobile]);
 /* ==========================================================
    MODULE STATUS ENGINE
 ==========================================================
@@ -725,6 +747,16 @@ const idleTimer = setTimeout(() => {
 ========================================================== */
 
 useEffect(() => {
+
+    /* ----------------------------------------------
+       Mobile performance mode
+
+       Avoid status timers on mobile.
+    ---------------------------------------------- */
+
+    if (isMobile) {
+        return;
+    }
 
     /* ----------------------------------------------
        Reset status
@@ -780,7 +812,7 @@ useEffect(() => {
 
     };
 
-}, [activeModule]);
+}, [activeModule, isMobile]);
 
 
 /* ==========================================================
@@ -805,6 +837,17 @@ useEffect(() => {
 ========================================================== */
 
 useEffect(() => {
+
+    /* ----------------------------------------------
+       Mobile performance mode
+
+       CSS keeps the dashboard visually alive while
+       JavaScript packet choreography is paused.
+    ---------------------------------------------- */
+
+    if (isMobile) {
+        return;
+    }
 
     /* ----------------------------------------------
        TIMER REFERENCES FOR THIS ANIMATION CYCLE
@@ -972,7 +1015,7 @@ useEffect(() => {
 
     };
 
-}, [activeModule]);
+}, [activeModule, isMobile]);
 
 
 /* ==========================================================
@@ -1090,6 +1133,20 @@ useEffect(() => {
 ========================================================== */
 
 const handleModuleEnter = (moduleId) => {
+
+    /* ----------------------------------------------
+       Mobile performance mode
+
+       Keep card selection responsive without starting
+       the timer-heavy packet choreography.
+    ---------------------------------------------- */
+
+    if (isMobile) {
+        setAutoRotate(false);
+        setActiveModule(moduleId);
+        setStatusIndex(0);
+        return;
+    }
 
     /* ----------------------------------------------
        Stop automatic module rotation
@@ -1286,7 +1343,7 @@ burstTimer.current = setTimeout(() => {
         ------------------------------------------ */
 
         setAutoRotate(
-            true
+            !isMobile
         );
 
     }, 2100);
