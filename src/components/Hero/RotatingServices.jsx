@@ -24,27 +24,30 @@ export default function RotatingServices() {
 
   return (
     <div className="rotating-box">
-
       <p>Currently Specializing In</p>
 
       <div className="rotating-service">
-
         <AnimatePresence mode="wait">
-
           <motion.h3
             key={services[index]}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -18 }}
-            transition={{ duration: .45 }}
+            initial={false}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: -18,
+            }}
+            transition={{
+              duration: 0.45,
+              ease: "easeOut",
+            }}
           >
             {services[index]}
           </motion.h3>
-
         </AnimatePresence>
-
       </div>
-
     </div>
   );
 }
