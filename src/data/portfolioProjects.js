@@ -37,22 +37,26 @@ export const starlightGallery = [
 
 export const portfolioProjects = [
   {
-    id: "starlight-ndovoini-academy",
-    title: "Starlight Ndovoini Academy",
-    category: "School Website Design",
-    industry: "Education",
-    image: starlightHero,
-    gallery: starlightGallery,
-    website: "https://starlight-ndovoini-academy.vercel.app",
-    description:
-      "A modern school website designed to strengthen the academy's online presence, communicate its CBE learning journey and make important information easier for parents to access.",
-    challenge:
-      "The academy needed a professional online presence that could communicate its learning journey, values and school information clearly to parents.",
-    solution:
-      "Developed a responsive school website with a modern visual identity, structured content and mobile-friendly experience designed around parent and learner information needs.",
-    outcome:
-      "A stronger digital presence that gives the academy a professional platform for communicating its identity, learning journey and key information.",
-  },
+  id: "starlight-ndovoini-academy",
+  title: "Starlight Ndovoini Academy",
+  category: "School Website Design",
+  industry: "Education",
+  image: starlightHero,
+  gallery: starlightGallery,
+  website: "https://starlight-ndovoini-academy.vercel.app",
+
+  description: "...",
+  challenge: "...",
+  solution: "...",
+  outcome: "...",
+
+  highlights: [
+    "Responsive school website",
+    "Clear learning journey presentation",
+    "Mobile-friendly parent experience",
+    "Professional school identity",
+  ],
+},
 
   {
     id: "nati-stores",
