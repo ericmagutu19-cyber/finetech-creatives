@@ -4,7 +4,7 @@ export default function HeroHeadline() {
   return (
     <motion.div
       className="hero-headline"
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 1, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
